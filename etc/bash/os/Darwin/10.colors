@@ -1,0 +1,7 @@
+# github:etc/bash/os/Darwin/10.color
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; -*-
+#
+#       Setup ls (and other progs?) to use color
+
+export CLICOLOR=1
+export LSCOLORS=dxfxcxdxbxegedabagacad
