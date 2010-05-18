@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/a.berlin/etc/bash'
+let g:netrw_dirhist_2='/Users/a.berlin/etc/bash/function'
+let g:netrw_dirhist_3='/Users/a.berlin/etc/bash'
+let g:netrw_dirhist_4='/Users/a.berlin/etc/bash/defaults'

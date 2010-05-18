@@ -1,0 +1,17 @@
+" vim: set ft=vim:
+
+if !has('gui')
+  finish
+endif
+
+set gfn=Inconsolata:h14
+color molokai
+
+" Make spelling errors stand out more
+hi SpellBad gui=undercurl guifg=#FF0000 guibg=bg
+
+" Be evil and override the statusline highlighting for Molokai
+hi StatusLine   ctermfg=NONE ctermbg=0 cterm=bold
+hi StatusLineNC ctermfg=NONE ctermbg=0 cterm=NONE
+hi StatusLine   guifg=#d3d7cf guibg=#2e3436 gui=bold
+hi StatusLineNC guifg=#d3d7cf guibg=#2e3436 gui=NONE

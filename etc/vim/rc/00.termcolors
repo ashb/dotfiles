@@ -1,0 +1,4 @@
+if &term =~ "xterm"
+  set t_Co=8 " enable colors on term
+  syntax on
+end

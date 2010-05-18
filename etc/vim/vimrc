@@ -3,4 +3,5 @@
 "
 "       Separate out vim settings into files in ~/etc/vim/rc.
 
+let &runtimepath = &runtimepath . "," . expand('<sfile>:p:h')
 runtime! rc/*
