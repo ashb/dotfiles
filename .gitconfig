@@ -1,0 +1,10 @@
+[alias]
+	st = status
+	di = diff
+	ci = commit
+	co = checkout
+[color]
+	ui = auto
+[user]
+	name = Ash Berlin
+	email = ash_github@firemirror.com
