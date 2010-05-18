@@ -1,0 +1,36 @@
+# github:ashb:homedir:/etc/bash/os/Darwin/11.proxy
+
+# Get the current 'main' interface
+function current_iface {
+  echo  $( \
+    (echo 'get State:/Network/Global/IPv4'; echo 'd.show') | \
+    scutil | \
+    awk '/PrimaryInterface/ { print  $3}' \
+  )
+}
+
+# Get the GUID for the main interface
+function current_netservice_guid {
+  echo $( \
+    (echo 'get State:/Network/Global/IPv4'; echo 'd.show') | \
+    scutil | \
+    awk '/PrimaryService/ { print  $3}'
+  )
+}
+
+# Get the name for the 'main' interface as it is shown in the Network Prefs Pane
+function current_net_service {
+  echo $( \
+    (echo get Setup:/Network/Service/$(current_netservice_guid); echo d.show) | \
+    scutil | \
+    awk '/UserDefinedName/ { print  $3}'
+  )
+}
+
+# Get the global socks proxy settings for the current network/location
+function socks_proxy_settings {
+  echo $( \
+    /usr/sbin/networksetup -getsocksfirewallproxy $(current_net_service)  | \
+    perl -ne '/(.*): (.*)/; $opt{$1} = $2; END { print "$opt{Server}:$opt{Port}\n" if $opt{Enabled} eq "Yes" }' \
+  )
+}

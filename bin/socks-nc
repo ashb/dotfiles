@@ -1,0 +1,17 @@
+#!/bin/bash
+# github:ashb:homedir:bin/socks-nc
+
+host="$1"
+port="$2"
+declare -a args
+
+BASH_BASE="${BASH_DIR:=${HOME}/etc/bash}"
+
+# If there is OS specific proxy settings file, load it.
+if [ -f "$BASH_BASE/os/$HOSTOS/11.proxy" ]; then
+  source "$BASH_BASE/os/$HOSTOS/11.proxy"
+  socks=$(socks_proxy_settings);
+  [ -n "$socks" ] && args=(-X 5 -x $socks)
+fi
+
+nc ${args[@]} "$host" "$port"
