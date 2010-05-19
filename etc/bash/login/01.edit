@@ -4,7 +4,7 @@
 #
 #       This contains nothing, but illustrates where login items are placed.
 
-available "mvim" && alias :e="mvim --remote-slient" || ( \
-  available "gvim" && alias :e="gvim --remote-slient" || ( \
+available "mvim" && alias :e="mvim --remote-silent" || ( \
+  available "gvim" && alias :e="gvim --remote-silent" || ( \
   alias :e="vim" ) )
 
