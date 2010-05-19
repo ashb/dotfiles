@@ -32,7 +32,6 @@
 "
 
 function! s:indent_tabs_mode(name, val)
-  echo "a:val: " . a:val
   if a:val == "nil"
     exec 'setlocal expandtab'
   else
@@ -42,7 +41,11 @@ endfunc
 
 let g:emacs_mode_line_mapping = {
   \ 'tab-width': 'tabstop',
-  \ 'indent-tabs-mode': function('s:indent_tabs_mode')
+  \ 'indent-tabs-mode': function('s:indent_tabs_mode'),
+  \ 'Mode': {
+  \   'prop': 'filetype',
+  \   'map': { 'Bash': 'sh' },
+  \ },
 \}
 
 function! s:GetParameters(line)
@@ -65,8 +68,20 @@ function! ParseEmacsModeLine()
       for [k, v] in items( s:GetParameters(l:mode) )
         if has_key(g:emacs_mode_line_mapping, k)
           let K = g:emacs_mode_line_mapping[k]
-          if type(K) == type(function("tr"))
+          let t = type(K)
+          if t == type(function("tr"))
             call K(k, v)
+          elseif t == type({})
+            " value is a dict.
+            if !has_key(K, "prop") || !has_key(K, "map") 
+             \ || type( K['prop'] ) != type("") || type( K['map'] ) != type({})
+              throw "g:emacs_mode_line_mapping['" . k . "'] is a dictionary, but it doesn't have 'prop' and 'map' values"
+            endif
+            if has_key(K.map, v)
+              exec 'setlocal ' K.prop . '=' . K.map[v]
+            else
+              exec 'setlocal ' K.prop . '=' . v
+            endif
           else
             exec 'setlocal ' K . '=' . v
           endif
@@ -78,4 +93,9 @@ function! ParseEmacsModeLine()
   endfor
 endfunc
 
-"autocmd BufReadPre * :call ParseEmacsModeLine()
+
+if !exists("s:autocommands_loaded")
+  let s:autocommands_loaded = 1
+
+  autocmd BufReadPre * :call ParseEmacsModeLine()
+endif
