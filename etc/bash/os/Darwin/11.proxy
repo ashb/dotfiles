@@ -34,3 +34,12 @@ function socks_proxy_settings {
     perl -ne '/(.*): (.*)/; $opt{$1} = $2; END { print "$opt{Server}:$opt{Port}\n" if $opt{Enabled} eq "Yes" }' \
   )
 }
+
+function http_proxy_settings {
+  echo $( \
+    /usr/sbin/networksetup -getwebproxy $(current_net_service)  | \
+    perl -ne '/(.*): (.*)/; $opt{$1} = $2; END { print "http://$opt{Server}:$opt{Port}\n" if $opt{Enabled} eq "Yes" }' \
+  )
+}
+
+export http_proxy=$(http_proxy_settings)
