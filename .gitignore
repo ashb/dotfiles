@@ -13,3 +13,5 @@
 /.ssh/
 /var/*
 /.viminfo
+/.cpanm
+.DS_Store
