@@ -1,0 +1,6 @@
+# github:etc/bash/rc/00.perlbrew
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; -*-
+#
+#       Setup env to use perlbrew if its installed
+
+source_if_exists $HOME/perl5/perlbrew/etc/bashrc

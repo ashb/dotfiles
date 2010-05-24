@@ -15,3 +15,4 @@
 /.viminfo
 /.cpanm
 .DS_Store
+/perl5/
