@@ -16,3 +16,8 @@
 /.cpanm
 .DS_Store
 /perl5/
+/.cpan/
+/.cups/
+/.sqlite_history
+/.subversion/
+/code/
