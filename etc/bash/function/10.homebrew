@@ -8,7 +8,7 @@ brew_prefix="/usr/local"
 [ -e "${brew_prefix}/etc/bash_completion/" ] \
     && BASH_COMPLETION="${brew_prefix}/etc/bash_completion"
 
-export   PERL_MM_OPT="INSTALL_BASE=/usr/local"
-export   PERL5LIB="/usr/local/lib/perl5"
-export   MODULEBUILDRC="${brew_prefix}/etc//modulebuildrc"
-export   PERL_CPANM_OPT="-l${brew_prefix}"
+#export   PERL_MM_OPT="INSTALL_BASE=/usr/local"
+#export   PERL5LIB="/usr/local/lib/perl5"
+#export   MODULEBUILDRC="${brew_prefix}/etc//modulebuildrc"
+#export   PERL_CPANM_OPT="-l${brew_prefix}"
