@@ -1,3 +1,4 @@
+# Default dirs in home dir
 /Desktop/
 /Documents/
 /Downloads/
@@ -6,18 +7,30 @@
 /Music/
 /Pictures/
 /Sites/
+/Public/
 /.Trash/
 /.account
-/Public/
-.*.sw[op]
-/.ssh/
-/var/*
-/.viminfo
-/.cpanm
+
+# Don't want this file anywhere
 .DS_Store
+
+# vim files.
+/.viminfo
+.*.sw[op]
+
+/var/*
+
+/.ssh/
+
+/.cpanm
 /perl5/
 /.cpan/
 /.cups/
 /.sqlite_history
 /.subversion/
+
+# This is not part of the homedir stuff, init
 /code/
+
+# Don't ignore .gitignore files anywere - we need them for creating 'emtpy' dirs
+!.gitignore
