@@ -1,0 +1,5 @@
+" -*- Mode: vim; tab-width: 4; indent-tabs-mode: nil; -*-
+
+" Remove local dir from the list
+set directory-=.
+set directory^=~/var/tmp//
