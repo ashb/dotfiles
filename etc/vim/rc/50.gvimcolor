@@ -15,3 +15,6 @@ hi StatusLine   ctermfg=NONE ctermbg=0 cterm=bold
 hi StatusLineNC ctermfg=NONE ctermbg=0 cterm=NONE
 hi StatusLine   guifg=#d3d7cf guibg=#2e3436 gui=bold
 hi StatusLineNC guifg=#d3d7cf guibg=#2e3436 gui=NONE
+
+" The default comment colour is too low contrast
+hi Comment guifg=#7A8385
