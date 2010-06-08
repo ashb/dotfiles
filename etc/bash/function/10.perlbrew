@@ -1,0 +1,10 @@
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; -*-
+
+
+# Return 0 (shell true) if the current perlbrewed perl is the system perl
+function perlbrew_is_system {
+  local ROOT="${PERLBREW_ROOT:=${HOME}/perl5/perlbrew}"
+  local the_perl="${ROOT}/bin/perl"
+  [ -e "$the_perl" ]  && readlink "$the_perl" | grep -q '^/usr/bin'
+  return $?
+}

@@ -8,7 +8,18 @@ brew_prefix="/usr/local"
 [ -e "${brew_prefix}/etc/bash_completion/" ] \
     && BASH_COMPLETION="${brew_prefix}/etc/bash_completion"
 
-#export   PERL_MM_OPT="INSTALL_BASE=/usr/local"
-#export   PERL5LIB="/usr/local/lib/perl5"
-#export   MODULEBUILDRC="${brew_prefix}/etc//modulebuildrc"
-#export   PERL_CPANM_OPT="-l${brew_prefix}"
+function homebrew_locallib {
+  if [ "$1" == "on" ]; then
+    export   PERL_MM_OPT="INSTALL_BASE=/usr/local"
+    export   PERL5LIB="/usr/local/lib/perl5"
+    export   MODULEBUILDRC="${brew_prefix}/etc//modulebuildrc"
+    export   PERL_CPANM_OPT="-l${brew_prefix}"
+  else
+    unset PERL_MM_OPT
+    unset PERL5LIB
+    unset MODULEBUILDRC
+    unset PERL_CPANM_OPT
+  fi
+}
+
+homebrew_locallib on

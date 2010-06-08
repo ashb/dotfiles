@@ -4,3 +4,5 @@
 #       Setup env to use perlbrew if its installed
 
 source_if_exists $HOME/perl5/perlbrew/etc/bashrc
+
+(type -p homebrew_locallib && perlbrew_is_system) && homebrew_locallib on || homebrew_locallib off
