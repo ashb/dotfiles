@@ -63,7 +63,6 @@ function! ParseEmacsModeLine()
   for l:line in readfile(expand('%:p'), '', 2)
     let l:mode = substitute(l:line, '^.*-\*-\(.*\)-\*-.*', '\1', '')
     if l:mode != l:line
-      echo "Found mode: " . l:mode
 
       for [k, v] in items( s:GetParameters(l:mode) )
         if has_key(g:emacs_mode_line_mapping, k)
@@ -94,8 +93,7 @@ function! ParseEmacsModeLine()
 endfunc
 
 
-if !exists("s:autocommands_loaded")
-  let s:autocommands_loaded = 1
-
-  autocmd BufReadPre * :call ParseEmacsModeLine()
-endif
+augroup emacs
+  autocmd!
+  autocmd FileReadPost * :call ParseEmacsModeLine()
+augroup END
