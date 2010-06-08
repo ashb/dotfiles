@@ -9,5 +9,5 @@
 	name = Ash Berlin
 	email = ash_github@firemirror.com
 [core]
-	gitproxy = "socks-nc" for github.com
+	#gitproxy = "socks-nc" for github.com
 	gitproxy = "socks-nc" for callisto.firemirror.com
