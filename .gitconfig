@@ -3,6 +3,7 @@
 	di = diff
 	ci = commit
 	co = checkout
+	glog = log --pretty=oneline --topo-order --graph --abbrev-commit --decorate
 [color]
 	ui = auto
 [user]
@@ -11,3 +12,5 @@
 [core]
 	#gitproxy = "socks-nc" for github.com
 	gitproxy = "socks-nc" for callisto.firemirror.com
+[push]
+	default = tracking
