@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+  echo "Usage: $0 <file>"
+  exit 127
+fi
+
+host="ashberlin.co.uk"
+www_dir="~/public_html/dump/"
+url="http://dump.ashberlin.co.uk/"
+
+scp "$1" ${host}:${www_dir}
+( echo -n "$url" ; basename "$1" | perl -pe 's!([# ?])!sprintf("%%%2x", ord($1))!eg' ) | pbcopy
+
