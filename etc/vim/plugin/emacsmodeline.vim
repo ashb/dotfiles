@@ -95,5 +95,5 @@ endfunc
 
 augroup emacs
   autocmd!
-  autocmd FileReadPost * :call ParseEmacsModeLine()
+  autocmd BufReadPost * call ParseEmacsModeLine()
 augroup END
