@@ -22,6 +22,10 @@
 
 /.ssh/
 
+# Ruby
+/.rvm/
+
+# Perl
 /.cpanm
 /perl5/
 /.cpan/

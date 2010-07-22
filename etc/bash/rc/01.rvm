@@ -1,0 +1,5 @@
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; -*-
+#
+#       Source rvm script files if its installed
+
+[ -f ~/.rvm/scripts/rvm ] && source ~/.rvm/scripts/rvm
