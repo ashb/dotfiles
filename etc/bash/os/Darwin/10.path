@@ -1,0 +1,5 @@
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; -*-
+#
+#       Add's OSX specific userdir to the path
+
+path_prepend "${HOME}/bin/${HOSTOS}"
