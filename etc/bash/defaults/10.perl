@@ -3,5 +3,5 @@
 #
 #       See ~/share/home/setup.markdown for more information.
 
-export   CHECK_PERL_MODULES='yes'
+export   CHECK_PERL_MODULES='no'
 export   CHECK_PERL_VERSION='yes'
