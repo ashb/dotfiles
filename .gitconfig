@@ -1,9 +1,9 @@
 [alias]
-	st = status
 	di = diff
 	ci = commit
 	co = checkout
 	glog = log --pretty=oneline --topo-order --graph --abbrev-commit --decorate
+	st = status -sb
 [color]
 	ui = auto
 [user]
