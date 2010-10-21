@@ -9,6 +9,11 @@ host="ashberlin.co.uk"
 www_dir="~/public_html/dump/"
 url="http://dump.ashberlin.co.uk/"
 
-scp "$1" ${host}:${www_dir}
+if [ -d "$1" ]; then
+  rsync -rP "$1" ${host}:${www_dir}/$(basename "$1")
+else
+  scp "$1" ${host}:${www_dir}
+fi
+
 ( echo -n "$url" ; basename "$1" | perl -pe 'chomp;s!([# ?])!sprintf("%%%2x", ord($1))!eg' ) | pbcopy
 
