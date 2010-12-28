@@ -15,7 +15,7 @@
 	excludesfile = ~/etc/git/excludes
   autocrlf = input
 [push]
-	default = tracking
+	default = current
 [github]
 	user = ashb
 	token = 89bb0e1229455ff2ea22560d6aa3f186
