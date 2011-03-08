@@ -1,0 +1,9 @@
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; -*-
+#
+#       Function to generate password from urandom
+
+function pwgen {
+  local len=${1:-10} 
+  cat /dev/random| LC_ALL=C tr -dc 'a-zA-Z0-9-_!@#$%^&*()_+{}|:<>?=' | head -c$len
+  echo
+}
