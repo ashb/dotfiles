@@ -10,7 +10,8 @@ www_dir="~/public_html/dump/"
 url="http://dump.ashberlin.co.uk/"
 
 if [ -d "$1" ]; then
-  rsync -rP "$1" ${host}:${www_dir}/$(basename "$1")
+  dir=$(echo "${1}" | sed 's/\/$//')
+  rsync -rP "${dir}"/* ${host}:${www_dir}$(basename "${dir}")/
 else
   scp "$1" ${host}:${www_dir}
 fi
