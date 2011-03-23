@@ -19,3 +19,19 @@
 [github]
 	user = ashb
 	token = 89bb0e1229455ff2ea22560d6aa3f186
+
+[url "git@github.com:"]
+  insteadOf = "gh:"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+  insteadOf = "github:"
+[url "git@gist.github.com:"]
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+  insteadOf = "gist:"
+[url "gitosis@callisto.firemirror.com:"]
+  insteadOf = "callisto:"
+  insteadOf = "digiresults:"
