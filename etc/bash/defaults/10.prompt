@@ -6,8 +6,8 @@
 #
 #       See ~/share/home/bash-prompt.markdown for more.
 
-# Truncate paths to a maximum of "five chars, ellipsis, five chars".
-PWDN_MAX_WORD='10'
+# Truncate paths to a maximum of "seven chars, ellipsis, seven chars".
+PWDN_MAX_WORD='14'
 
 # Default prompt macros.
 GIT_STATUS_FORMATTER='git_status_formatter'
