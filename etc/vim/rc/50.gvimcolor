@@ -4,7 +4,7 @@ if !has('gui')
   finish
 endif
 
-set gfn=Inconsolata:h14
+set gfn=Inconsolata:h13
 color molokai
 
 " Make spelling errors stand out more
