@@ -4,5 +4,5 @@
   "tab_size": 2,
   "trim_trailing_white_space_on_save": true,
   "rulers": [80],
-  "indent_guide_options": ["draw_active", "stippled"]
+  "indent_guide_options": ["draw_active", "draw_stack", "stippled", "draw_normal"]
 }
