@@ -43,3 +43,4 @@ function http_proxy_settings {
 }
 
 export http_proxy=$(http_proxy_settings)
+[ -z "$http_proxy" ] && unset http_proxy
