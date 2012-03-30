@@ -1,0 +1,12 @@
+{
+	"auto_upgrade_last_run": 1333114357,
+	"installed_packages":
+	[
+		"Block Nav",
+		"Emacs-like Modelines",
+		"Package Control",
+		"sublime-github",
+		"SublimeCodeIntel",
+		"SyncedSideBar"
+	]
+}
