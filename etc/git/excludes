@@ -2,3 +2,5 @@
 Thumbs.db
 build_rel
 .*.swp
+*.sublime-project
+*.sublime-workspace
