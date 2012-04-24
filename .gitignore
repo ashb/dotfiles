@@ -38,6 +38,9 @@
 # This is not part of the homedir stuff, init
 /code/
 
+# Doesn't really belong under /etc/ but...
+/etc/rbenv
+
 # Don't ignore .gitignore files anywere - we need them for creating 'emtpy' dirs
 !.gitignore
 \.*
