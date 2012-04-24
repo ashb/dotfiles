@@ -1,0 +1,23 @@
+# github:etc/bash/os/Darwin/10.sublime
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; -*-
+#
+#       Setup functions to help checking sublime on OSX
+#       Run from within rc/00.check-sublime
+
+function check_sublime_installed {
+    [ -x "/Applications/Sublime Text 2.app/Contents/MacOS/Sublime Text 2" ] || \
+        ( warn "Sublime Text 2 is not installed"; false )
+}
+
+function check_sublime_user_pkg_installed {
+    mkdir -p "$HOME/Library/Application Support/Sublime Text 2/Packages/"
+    [ $HOME/etc/sublime/Packages/User -ef "$HOME/Library/Application Support/Sublime Text 2/Packages/User" ] || \
+    (  warn "Sublime Text 2 user package is not installed:" && \
+      echo "    rm -r \"\$HOME/Library/Application Support/Sublime Text 2/Packages/User\""
+      echo "    ln -sf ~/etc/sublime/Packages/User \"\$HOME/Library/Application Support/Sublime Text 2/Packages/\"" )
+}
+
+# We always want to check sublime on OS X
+export CHECK_SUBLIME="yes"
+
+
