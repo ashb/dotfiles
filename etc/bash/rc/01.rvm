@@ -2,4 +2,26 @@
 #
 #       Source rvm script files if its installed
 
-[ -f ~/.rvm/scripts/rvm ] && source ~/.rvm/scripts/rvm
+# Favour rbenv over RVM
+if [ -x /usr/local/bin/rbenv ]; then
+    local rbenv_keg="$( dirname $( brew list rbenv | head -n1 | xargs dirname ) )"
+    source_if_exists "$rbenv_keg/completions/rbenv.bash"
+    export RBENV_ROOT="$HOME/etc/rbenv"
+    path_prepend "$RBENV_ROOT/shims"
+
+    rbenv() {
+      command="$1"
+      if [ "$#" -gt 0 ]; then
+        shift
+      fi
+
+      case "$command" in
+      shell)
+        eval `rbenv "sh-$command" "$@"`;;
+      *)
+        command rbenv "$command" "$@";;
+      esac
+    }
+else
+    [ -f ~/.rvm/scripts/rvm ] && source ~/.rvm/scripts/rvm
+fi
