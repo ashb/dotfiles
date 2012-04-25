@@ -9,12 +9,14 @@ function check_sublime_installed {
         ( warn "Sublime Text 2 is not installed"; false )
 }
 
-function check_sublime_user_pkg_installed {
-    mkdir -p "$HOME/Library/Application Support/Sublime Text 2/Packages/"
-    [ $HOME/etc/sublime/Packages/User -ef "$HOME/Library/Application Support/Sublime Text 2/Packages/User" ] || \
-    (  warn "Sublime Text 2 user package is not installed:" && \
-      echo "    rm -r \"\$HOME/Library/Application Support/Sublime Text 2/Packages/User\""
-      echo "    ln -sf ~/etc/sublime/Packages/User \"\$HOME/Library/Application Support/Sublime Text 2/Packages/\"" )
+export SUBLIME_PACKAGE_DIR="$HOME/Library/Application Support/Sublime Text 2/Packages"
+function check_sublime_pkg_installed {
+    local pkg="$1"
+    mkdir -p "$SUBLIME_PACKAGE_DIR"
+    [ "$HOME/etc/sublime/Packages/$pkg" -ef "$SUBLIME_PACKAGE_DIR/$pkg" ] || \
+    (  warn "Sublime Text 2 $pkg package is not installed:" && \
+      [ -e "$SUBLIME_PACKAGE_DIR/$pkg" ] && echo "    rm -r \"$SUBLIME_PACKAGE_DIR/$pkg\""
+      echo "    ln -sf \"$HOME/etc/sublime/Packages/$pkg\" \"$SUBLIME_PACKAGE_DIR/\"" )
 }
 
 # We always want to check sublime on OS X

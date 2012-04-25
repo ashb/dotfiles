@@ -4,4 +4,9 @@
 #       Check for any pre-requisite software, and whether any of the
 #       installed scripts are different to the versions on github.
 
-[ "$CHECK_SUBLIME" = 'yes' ] && check_sublime_installed && check_sublime_user_pkg_installed
+[ "$CHECK_SUBLIME" = 'yes' ] || return
+
+check_sublime_installed || return
+
+check_sublime_pkg_installed "User"
+check_sublime_pkg_installed "Package Control"
