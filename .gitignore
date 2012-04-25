@@ -35,8 +35,8 @@
 /.sqlite_history
 /.subversion/
 
-# This is not part of the homedir stuff, init
-/code/
+# compiled python files
+*.pyc
 
 # Doesn't really belong under /etc/ but...
 /etc/rbenv
