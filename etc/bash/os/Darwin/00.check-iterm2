@@ -1,0 +1,15 @@
+# github:etc/bash/function/01.check-configuration
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; -*-
+#
+#       Check iTerm2's pref files is symlinks to the repo version.
+
+function check_iterm2_preferences_linked {
+    local dest="$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+    local src="$HOME/etc/iTerm/com.googlecode.iterm2.plist"
+    [ "$src" -ef "$dest" ] || \
+    (  warn "iTerm2 preferences not installed:" && \
+      [ -e "$dest" ] && echo "    rm -r \"$dest\""
+      echo "    ln -sf \"$src\" \"$dest\"" )
+}
+
+check_iterm2_preferences_linked
