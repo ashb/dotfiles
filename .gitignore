@@ -12,6 +12,7 @@
 /Public/
 /.Trash/
 /.account
+/code
 
 # Don't want this file anywhere
 .DS_Store
