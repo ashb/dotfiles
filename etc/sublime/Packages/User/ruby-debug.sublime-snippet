@@ -1,5 +1,5 @@
 <snippet>
-    <content><![CDATA[require 'ruby-debug';debugger]]></content>
+    <content><![CDATA[require 'debugger';debugger]]></content>
     <tabTrigger>debug</tabTrigger>
     <scope>source.ruby</scope>
     <description>Break Point</description>
