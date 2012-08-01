@@ -1,19 +1,36 @@
 #!/bin/bash
 
+host="ashberlin.co.uk"
+www_dir="~/public_html/dump/"
+url="http://dump.ashberlin.co.uk/"
+
+set -e
+
+rsync_opts=""
+
+case $1 in
+  -l )
+    shift;
+    rsync_opts="$rsync_opts --bwlimit $1"
+    scp_opts="$scp_opts -l $1"
+    shift;
+    ;;
+  --)
+    shift;
+    ;;
+esac
+
 if [ $# -ne 1 ]; then
   echo "Usage: $0 <file>"
   exit 127
 fi
 
-host="ashberlin.co.uk"
-www_dir="~/public_html/dump/"
-url="http://dump.ashberlin.co.uk/"
 
 if [ -d "$1" ]; then
   dir=$(echo "${1}" | sed 's/\/$//')
-  rsync -rP "${dir}"/* ${host}:${www_dir}$(basename "${dir}")/
+  rsync -rP $rsync_opts "${dir}"/* ${host}:${www_dir}$(basename "${dir}")/
 else
-  scp "$1" ${host}:${www_dir}
+  rsync -P $rsync_opts "$1" ${host}:${www_dir}
 fi
 
 ( echo -n "$url" ; basename "$1" | perl -pe 'chomp;s!([# ?])!sprintf("%%%2x", ord($1))!eg' ) | pbcopy
