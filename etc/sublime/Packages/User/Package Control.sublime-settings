@@ -1,10 +1,11 @@
 {
-	"auto_upgrade_last_run": 1335699215,
+	"auto_upgrade_last_run": 1344814492,
 	"installed_packages":
 	[
 		"Block Nav",
 		"Emacs-like Modelines",
 		"Package Control",
-		"sublime-github"
+		"sublime-github",
+		"SublimeBlockCursor"
 	]
 }
