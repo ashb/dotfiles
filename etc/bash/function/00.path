@@ -5,7 +5,7 @@
 
 function path_append {
     local directory="$1"
-    
+
     if [ -x "$directory" ]; then
         echo "$PATH" | grep "$directory" &> /dev/null
         [ $? -eq 1 ] \
@@ -15,7 +15,7 @@ function path_append {
 
 function path_prepend {
     local directory="$1"
-    
+
     if [ -x "$directory" ]; then
         echo "$PATH" | grep "$directory" &> /dev/null
         [ $? -eq 1 ] \
@@ -23,9 +23,14 @@ function path_prepend {
     fi
 }
 
+function path_remove {
+    local directory="$(echo "$1" | sed -e 's/\//\\\//g')"
+    PATH=$(echo ${PATH} | awk -v RS=: -v ORS=: "/$directory/ {next} {print}" | sed 's/:$//')
+}
+
 function manpath_append {
     local directory="$1"
-    
+
     if [ -x "$directory" ]; then
         echo "$MANPATH" | grep "$directory" &> /dev/null
         [ $? -eq 1 ] \
@@ -33,8 +38,12 @@ function manpath_append {
     fi
 }
 
-path_append  '/usr/local/bin'
-path_append  '/usr/local/sbin'
+# We want these to be at the front, before /usr/bin
+path_remove '/usr/local/bin'
+path_remove '/usr/local/sbin'
+
+path_prepend  '/usr/local/bin'
+path_prepend  '/usr/local/sbin'
 path_prepend '/usr/sbin'
 path_prepend '/usr/bin'
 path_prepend '/sbin'
