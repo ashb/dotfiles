@@ -1,0 +1,5 @@
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; -*-
+#
+#       Set up paths for Gerhard's deliver
+
+path_prepend ~/code/deliver/bin
