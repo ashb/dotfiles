@@ -1,8 +1,9 @@
 {
-	"auto_upgrade_last_run": 1344814492,
+	"auto_upgrade_last_run": 1349860427,
 	"installed_packages":
 	[
 		"Block Nav",
+		"CoffeeScript",
 		"Emacs-like Modelines",
 		"Package Control",
 		"sublime-github",
