@@ -11,6 +11,6 @@ ch_check_for_env_file_update() {
     echo "#$ch_env_uri_HEAD" >> "$HOME/.ch.env"
 }
 
-online && ch_check_for_env_file_update
+[ -e "$HOME/.ch.en" ] && online && ch_check_for_env_file_update
 
 source_if_exists "$HOME/.ch.env"
