@@ -8,7 +8,8 @@ ch_check_for_env_file_update() {
     local ch_env_uri="https://raw.github.com/gist/${ch_env_uri_HEAD}/ch.env.bash"
 
     curl -s -o "$HOME/.ch.env" "$ch_env_uri"
-    echo "#$ch_env_uri_HEAD" >> "$HOME/.ch.env"
+    echo -e "\n#$ch_env_uri_HEAD" >> "$HOME/.ch.env"
+    perl -pi -e 's/^add_local_dirs_to_path$//' "$HOME/.ch.env"
 }
 
 [ -e "$HOME/.ch.en" ] && online && ch_check_for_env_file_update

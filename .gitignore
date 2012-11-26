@@ -45,3 +45,5 @@
 # Don't ignore .gitignore files anywere - we need them for creating 'emtpy' dirs
 !.gitignore
 \.*
+
+.ch.env
