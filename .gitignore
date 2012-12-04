@@ -42,6 +42,10 @@
 # Doesn't really belong under /etc/ but...
 /etc/rbenv
 
+# Sublime Package Control state file. local only
+/etc/sublime/Packages/User/Package Control.last-run
+
+
 # Don't ignore .gitignore files anywere - we need them for creating 'emtpy' dirs
 !.gitignore
 \.*
