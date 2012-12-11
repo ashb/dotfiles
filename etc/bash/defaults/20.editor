@@ -1,0 +1,2 @@
+# Lets not use nano!
+export EDITOR=vim
