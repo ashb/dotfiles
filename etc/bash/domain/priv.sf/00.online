@@ -1,0 +1,11 @@
+# github:etc/bash/defaults/00.online
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; -*-
+#
+#       Replacement online() for version of `ping` on SF servers
+
+function online {
+    unset -v online
+    
+    ping -qc1 -w1 www.google.com >&/dev/null \
+        && online='yes'
+}
