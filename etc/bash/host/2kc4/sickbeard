@@ -4,6 +4,8 @@ alias wake_proteus="perl -MNet::Wake -e \"Net::Wake::by_udp(undef,'00:1b:63:1d:3
 function sickbeard() {
     # If its not running, launch sickbeard inside tmux and ssh tunnel to giganews via thebe
     tmux list-sessions -F '#{session_name}' 2>/dev/null | grep -q sickbeard || \
-    tmux new-session -d -s sickbeard -n SickBeard.py ~/code/python/Sick-Beard/SickBeard.py \; new-window -n ssh "bash -c 'while true; do ssh -i .ssh/thebe-pf-only -NL 4563:news-europe.giganews.com:563 thebe.firemirror.com; sleep 60; done'"
+    tmux new-session -d -s sickbeard -n SickBeard.py ~/code/python/Sick-Beard/SickBeard.py \; \
+        new-window -n ssh "bash -c 'while true; do ssh -i .ssh/thebe-pf-only -NL 4563:news-europe.giganews.com:563 thebe.firemirror.com; sleep 60; done'" \
+        new-window -n couchpotato ~/code/python/CouchPotatoServer/CouchPotato.py
 }
 
