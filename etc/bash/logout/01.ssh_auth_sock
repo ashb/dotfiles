@@ -1,0 +1,2 @@
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; -*-
+unlink_ssh_authsock
