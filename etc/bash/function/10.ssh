@@ -5,7 +5,7 @@
 
 function link_ssh_authsock {
     umask 77
-    if [ -n "$SSH_AUTH_SOCK" -a -e "$SSH_AUTH_SOCK" ]; then
+    if [ -n "$SSH_AUTH_SOCK" -a ! -L "$SSH_AUTH_SOCK" ]; then
         ln -sf $SSH_AUTH_SOCK ~/.ssh/auth_sock
         export SSH_AUTH_SOCK_OLD=$SSH_AUTH_SOCK
         export SSH_AUTH_SOCK=$HOME/.ssh/auth_sock
