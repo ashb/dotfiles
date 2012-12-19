@@ -1,0 +1,8 @@
+# -*- bash -*-
+#
+#     Add local gem bin/ to path if .gemrc has a custom gem path set
+
+if [ -e "$HOME/.gemrc" ]; then
+  local gemhome=$(awk '/^gemhome:/ { print $2 }' "$HOME/.gemrc")
+  path_prepend "$gemhome/bin"
+fi
