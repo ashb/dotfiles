@@ -1,0 +1,9 @@
+# -*- bash -*-
+brew_prefix="/usr/local"
+
+[ -e "${brew_prefix}/etc/bash_completion/" ] \
+    && BASH_COMPLETION="${brew_prefix}/etc/bash_completion"
+
+export PYTHONPATH="/usr/local/lib/python2.6/site-packages/:$PYTHONPATH"
+
+(type -p homebrew_locallib && perlbrew_is_system) && homebrew_locallib on || homebrew_locallib off

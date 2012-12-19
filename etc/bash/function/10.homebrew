@@ -3,17 +3,15 @@
 #
 #       Setup the paths of the homebrew packaging system.
 
-brew_prefix="/usr/local"
 
-[ -e "${brew_prefix}/etc/bash_completion/" ] \
-    && BASH_COMPLETION="${brew_prefix}/etc/bash_completion"
 
 function homebrew_locallib {
+  local brew_prefix="/usr/local"
   if [ "$1" == "on" ]; then
-    export   PERL_MM_OPT="INSTALL_BASE=/usr/local"
-    export   PERL5LIB="/usr/local/lib/perl5"
-    export   MODULEBUILDRC="${brew_prefix}/etc//modulebuildrc"
-    export   PERL_CPANM_OPT="-l${brew_prefix}"
+    export PERL_MM_OPT="INSTALL_BASE=${brew_prefix}"
+    export PERL5LIB="${brew_prefix}/lib/perl5"
+    export MODULEBUILDRC="${brew_prefix}/etc//modulebuildrc"
+    export PERL_CPANM_OPT="-l${brew_prefix}"
   else
     unset PERL_MM_OPT
     unset PERL5LIB
@@ -21,7 +19,3 @@ function homebrew_locallib {
     unset PERL_CPANM_OPT
   fi
 }
-
-export PYTHONPATH="/usr/local/lib/python2.6/site-packages/:$PYTHONPATH"
-
-homebrew_locallib on
