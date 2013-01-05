@@ -2,10 +2,21 @@
 alias wake_proteus="perl -MNet::Wake -e \"Net::Wake::by_udp(undef,'00:1b:63:1d:35:0a')\""
 
 function sickbeard() {
-    # If its not running, launch sickbeard inside tmux and ssh tunnel to giganews via thebe
-    tmux list-sessions -F '#{session_name}' 2>/dev/null | grep -q sickbeard || \
-    tmux new-session -d -s sickbeard -n SickBeard.py ~/code/python/Sick-Beard/SickBeard.py \; \
-        new-window -n ssh "bash -c 'while true; do ssh -i .ssh/thebe-pf-only -NL 4563:news-europe.giganews.com:563 thebe.firemirror.com; sleep 60; done'" \
-        new-window -n couchpotato ~/code/python/CouchPotatoServer/CouchPotato.py
+    local session_name=sickbeard
+    local sessions=$(tmux list-windows -t $session_name -F '#W' 2>/dev/null)
+
+    # Start sickbeard. Create new session, or new window if named session already exists
+    echo "$sessions" | grep -q SickBeard || \
+        tmux new-session -d -s $session_name -n SickBeard ~/code/python/Sick-Beard/SickBeard.py || \
+            tmux new-window -t $session_name -n SickBeard ~/code/python/Sick-Beard/SickBeard.py
+
+    # By here the session will always be created
+
+    echo "$sessions" | grep -q ssh-tunnel || \
+        tmux new-window -t $session_name -n ssh-tunnel "bash -c 'while true; do ssh -i .ssh/thebe-pf-only -NL 4563:news-europe.giganews.com:563 thebe.firemirror.com; sleep 10; done'"
+
+    echo "$sessions" | grep -q CouchPotato || \
+        tmux new-window -t $session_name -n CouchPotato ~/code/python/CouchPotatoServer/CouchPotato.py
+
 }
 
