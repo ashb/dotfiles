@@ -13,7 +13,7 @@ function sickbeard() {
     # By here the session will always be created
 
     echo "$sessions" | grep -q ssh-tunnel || \
-        tmux new-window -t $session_name -n ssh-tunnel "bash -c 'while true; do ssh -i .ssh/thebe-pf-only -NL 4563:news-europe.giganews.com:563 thebe.firemirror.com; sleep 10; done'"
+        tmux new-window -t $session_name -n ssh-tunnel "bash -c 'while true; do ssh -NL 4563:news-europe.giganews.com:563 jupiter.firemirror.com; sleep 10; done'"
 
     echo "$sessions" | grep -q CouchPotato || \
         tmux new-window -t $session_name -n CouchPotato ~/code/python/CouchPotatoServer/CouchPotato.py
