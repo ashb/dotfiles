@@ -1,0 +1,2 @@
+# Use the local CPAN mirror for cpanm
+eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
