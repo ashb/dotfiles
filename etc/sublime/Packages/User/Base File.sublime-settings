@@ -5,8 +5,6 @@
 	"indent_guide_options":
 	[
 		"draw_active",
-		"draw_stack",
-		"stippled",
 		"draw_normal"
 	],
 	"rulers":
