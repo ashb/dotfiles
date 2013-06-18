@@ -9,15 +9,15 @@
 # * Check VMWare exists and exit if it doesn't (cross-platform)
 
 VM_DIR="${HOME}/Documents/Virtual Machines.localized"
-START_VM="/Library/Application Support/VMware Fusion/vmrun"
-VMS=$(find "${VM_DIR}" -name "*.vmwarevm" | grep -v 'Win')
+VM_RUN="/Applications/VMware Fusion.app/Contents/Library/vmrun"
+VMS=$(find "${VM_DIR}" -name "*.vmwarevm" | grep -v 'Win' | grep -Fv 'template.vmwarevm' | xargs -I% basename -s ".vmwarevm" "%")
 
 
 op=${1:-start}
-shift 1 
+shift 1
 
 if [ "$op" = "help" ] || [ "$op" = '-?' ] || [ "$op" == "--help" ]; then
-    exec "${START_VM}" "--help"
+    exec "${VM_RUN}" "--help"
 fi
 
 OLD_IFS=${IFS}; IFS="
@@ -28,7 +28,7 @@ declare -a args
 function split_opts() {
 
   while [ $# -gt 0 ]; do
-    case "$1" in 
+    case "$1" in
       -gu|-gp|-vp|-p|-u|-T|-P|-h)
         opts=( "${opts[@]}" "$1" "$2" )
         shift 2;
@@ -45,8 +45,8 @@ function split_opts() {
 [ "$op" = "start" ] && args=(nogui "${args[@]}")
 
 case "$op" in
-  list | help | -? | --help) 
-    "${START_VM}" "$op"
+  list | help | -? | --help)
+    "${VM_RUN}" "$op"
   ;;
   *)
     split_opts "$@"
@@ -57,7 +57,7 @@ case "$op" in
 
     select vm in $VMS ; do
         # run file
-        "${START_VM}" "${opts[@]}" "$op" "${vm}" "${args[*]}"
+        "${VM_RUN}" "${opts[@]}" "$op" "${vm}.vmwarevm" "${args[*]}"
         exit=$?
         # repair IFS
         IFS=${OLD_IFS}
