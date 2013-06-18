@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+vm_name="${1}"
+[ -z "$1" ] && echo -n "VM name: sf_dev_" && read vm_name
+
+vm_dir="sf_dev_${vm_name}.vmwarevm"
+
+cd ~/Documents/Virtual\ Machines.localized/
+cp -r debian_7.0_CoW_disk/template.vmwarevm "$vm_dir"
+perl -pi -e 's/Change me/SF Dev '"$vm_name"'/' "$vm_dir"/vm.vmx
+"/Applications/VMware Fusion.app/Contents/Library/vmrun" snapshot "$vm_dir" created
+open "$vm_dir"
+
