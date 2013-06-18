@@ -4,12 +4,15 @@
 
 
 function link_ssh_authsock {
+    local old_umask
+    old_umask=$(umask)
     umask 77
     if [ -n "$SSH_AUTH_SOCK" -a ! -L "$SSH_AUTH_SOCK" ]; then
         ln -sf $SSH_AUTH_SOCK ~/.ssh/auth_sock
         export SSH_AUTH_SOCK_OLD=$SSH_AUTH_SOCK
         export SSH_AUTH_SOCK=$HOME/.ssh/auth_sock
     fi
+    umask $old_umask
 }
 
 function unlink_ssh_authsock {
