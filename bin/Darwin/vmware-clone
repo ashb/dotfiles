@@ -1,10 +1,11 @@
 #!/bin/bash
 set -e
 
+vm_prefix="${vm_prefix:-sf_dev_}"
 vm_name="${1}"
-[ -z "$1" ] && echo -n "VM name: sf_dev_" && read vm_name
+[ -z "$1" ] && echo -n "VM name: ${vm_prefix}" && read vm_name
 
-vm_dir="sf_dev_${vm_name}.vmwarevm"
+vm_dir="${vm_prefix}${vm_name}.vmwarevm"
 
 cd ~/Documents/Virtual\ Machines.localized/
 cp -r debian_7.0_CoW_disk/template.vmwarevm "$vm_dir"
