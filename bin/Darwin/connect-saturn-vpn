@@ -1,0 +1,13 @@
+#!/bin/sh
+exec <"$0" || exit; read v; read v; exec /usr/bin/osascript - "$@"; exit
+tell application "Tunnelblick"
+	set vpn_state to get state of first configuration where name = "saturn"
+	if result = "EXITING" then
+		connect "saturn"
+	end if
+	
+	repeat until vpn_state = "CONNECTED"
+		delay 1
+		set vpn_state to get state of first configuration where name = "saturn"
+	end repeat
+end tell
