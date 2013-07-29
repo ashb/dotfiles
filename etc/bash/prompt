@@ -115,6 +115,12 @@ function expand_prompt_template {
                 template="${title}${template}"
             fi
             ;;
+        screen*)
+            if [ -n "$title" ]; then
+                title="%Tx${title}%tx"
+                template="${title}${template}"
+              fi
+            ;;
     esac
     
     # [%] macro
@@ -163,6 +169,8 @@ function expand_prompt_template {
         -e "s/%S/$pstrike/g"                        \
         -e "s/%s/$pnostrike/g"                      \
         -e "s/%X/$preset/g"                         \
+        -e "s/%Tx/$tmuxtitlestart/g"                \
+        -e "s/%tx/$tmuxtitlefinish/g"               \
         -e "s/%T/$xtitlestart/g"                    \
         -e "s/%t/$xtitlefinish/g"                   \
         -e "s/%ck/$pblack/g"                        \

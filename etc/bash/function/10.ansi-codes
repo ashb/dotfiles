@@ -67,3 +67,5 @@ pbgmagenta='\\[\\e[45m\\]'
 # Start/finish set xterm title sequence
  xtitlestart='\\[\\e]0;'
 xtitlefinish='\\007\\]'
+ tmuxtitlestart='\\ek'
+tmuxtitlefinish='\\e\\'

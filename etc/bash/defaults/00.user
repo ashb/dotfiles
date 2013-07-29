@@ -6,4 +6,4 @@
 #
 #       See ~/share/home/setup.markdown for more information.
 
-export DEFAULT_USER='ashb'
+export DEFAULT_USER='ash'
