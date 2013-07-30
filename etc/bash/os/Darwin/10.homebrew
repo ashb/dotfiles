@@ -1,9 +1,21 @@
 # -*- bash -*-
 brew_prefix="/usr/local"
 
-[ -e "${brew_prefix}/etc/bash_completion/" ] \
+[ -e "${brew_prefix}/etc/bash_completion/" -a -z "$BASH_COMPLETION" ] \
     && BASH_COMPLETION="${brew_prefix}/etc/bash_completion"
 
 export PYTHONPATH="/usr/local/lib/python2.6/site-packages/:$PYTHONPATH"
 
 (type -p homebrew_locallib && perlbrew_is_system) && homebrew_locallib on || homebrew_locallib off
+
+if [ -e /usr/local/Library/LinkedKegs/ec2-api-tools/jars ]; then
+  export JAVA_HOME="$(/usr/libexec/java_home)"
+
+  key_file=$(/bin/ls "$HOME"/.ec2/pk-*.pem 2>/dev/null) && \
+  export EC2_PRIVATE_KEY="$(echo "$key_file" | /usr/bin/head -1)"
+
+  key_file=$(/bin/ls "$HOME"/.ec2/cert-*.pem 2>/dev/null) && \
+  export EC2_CERT="$(echo "$key_file" | /usr/bin/head -1)"
+
+  export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
+fi
