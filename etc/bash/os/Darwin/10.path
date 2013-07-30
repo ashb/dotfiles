@@ -2,4 +2,8 @@
 #
 #       Add's OSX specific userdir to the path
 
-path_prepend "${HOME}/bin/${HOSTOS}"
+
+# Don't let path_helper fuck with our path. Blasted thing
+export PATH=
+. /etc/profile
+

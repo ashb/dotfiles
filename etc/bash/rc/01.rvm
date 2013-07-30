@@ -4,8 +4,7 @@
 
 # Favour rbenv over RVM
 if [ -x /usr/local/bin/rbenv ]; then
-    local rbenv_keg="$( dirname $( brew list rbenv | head -n1 | xargs dirname ) )"
-    source_if_exists "$rbenv_keg/completions/rbenv.bash"
+    source_if_exists "$( dirname $( brew list rbenv | head -n1 | xargs dirname ) )/completions/rbenv.bash"
     export RBENV_ROOT="$HOME/etc/rbenv"
     path_prepend "$RBENV_ROOT/shims"
 
