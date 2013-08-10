@@ -6,7 +6,7 @@ if has('ruby')
   map ,f :LustyFilesystemExplorer<cr>
   map ,r :LustyFilesystemExplorerFromHere<cr>
   map ,b :LustyBufferExplorer<cr>
-  map ,g :LustyJuggler<cr>
+  map ,g :LustyBufferGrep<cr>
 
   let g:LustyJugglerShowKeys = 'a'
 end
