@@ -1,0 +1,4 @@
+" -*- vim -*-
+" ,l will toggle between abs and rel line numbers
+set relativenumber
+map ,l :let [&nu,&rnu]=[&rnu,!&rnu]<cr>
