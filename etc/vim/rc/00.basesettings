@@ -17,3 +17,6 @@ set scrolloff=3
 
 set backspace=eol,start,indent
 syntax on
+" Show tabs and space characters
+set list
+set listchars=tab:›\ ,trail:•
