@@ -1,0 +1,2 @@
+" -*- Mode: vim; -*-
+execute pathogen#infect("~/etc/vim/bundle/{}")
