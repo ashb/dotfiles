@@ -12,4 +12,8 @@ set
   \ incsearch
   \ hls
 
+" Always keep 3 lines above/below current when scrolling
+set scrolloff=3
+
+set backspace=eol,start,indent
 syntax on
