@@ -2,7 +2,6 @@
 
 set
   \ et
-  \ ai
   \ sw=2
   \ sts=2
   \ ts=2
@@ -15,8 +14,14 @@ set
 " Always keep 3 lines above/below current when scrolling
 set scrolloff=3
 
+set autoindent smartindent
+
 set backspace=eol,start,indent
+
 syntax on
+
+map ,d :Bclose<cr>
+
 " Show tabs and space characters
 set list
 set listchars=tab:›\ ,trail:•
