@@ -44,7 +44,10 @@ let g:emacs_mode_line_mapping = {
   \ 'indent-tabs-mode': function('s:indent_tabs_mode'),
   \ 'Mode': {
   \   'prop': 'filetype',
-  \   'map': { 'Bash': 'sh' },
+  \   'map': {
+  \     'Bash': 'sh',
+  \     'Vimrc': 'vim',
+  \   },
   \ },
 \}
 
@@ -53,7 +56,12 @@ function! s:GetParameters(line)
 
   for pair in split(substitute(a:line, '\s\+\(.*\)\s\+$', '\1', ''), '\s*;\s*')
     let vals = split(pair, '\s*:\s*')
-    let l:opt[ vals[0] ] = vals[1]
+    if len( vals ) == 1
+      " Case like '-*- vim -*-'
+      let l:opt[ "Mode" ] = vals[0]
+    else
+      let l:opt[ vals[0] ] = vals[1]
+    endif
   endfor
 
   return l:opt
