@@ -1,5 +1,4 @@
 " -*- Mode: vim; tab-width: 4; indent-tabs-mode: nil; -*-
-color molokai
 if &term =~ "-256color"
   set t_Co=256 " enable colors on term
   syntax on
@@ -7,3 +6,7 @@ elseif &term =~ "-color"
   set t_Co=8 " enable colors on term
   syntax on
 end
+
+color Tomorrow-Night-Bright
+" cleare the BG on the gitgutter
+highlight clear SignColumn
