@@ -116,10 +116,10 @@ function expand_prompt_template {
             fi
             ;;
         screen*)
-            if [ -n "$title" ]; then
-                title="%Tx${title}%tx"
-                template="${title}${template}"
-              fi
+            #if [ -n "$title" ]; then
+            #    title="%Tx${title}%tx"
+            #    template="${title}${template}"
+            #fi
             ;;
     esac
     
