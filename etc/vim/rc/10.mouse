@@ -1,0 +1,8 @@
+" -*- Vimrc -*-
+
+" Enable mouse scrolling etc. Needs option enabling in iterm:
+" Profiles -> Default -> Terminal -> Enable xterm mouse reporting:
+set mouse=a
+
+" Yank, put, etc use the system pasteboard
+set clipboard=unnamed
