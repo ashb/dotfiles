@@ -1,0 +1,9 @@
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; -*-
+
+function find_ssh_auth_socks {
+    find /tmp -name agent.* -user $USER 2> /dev/null
+}
+
+function stat_creation_time_and_name_args {
+   echo -f "'%c %N'"
+}
