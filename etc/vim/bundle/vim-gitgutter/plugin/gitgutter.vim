@@ -191,12 +191,20 @@ endfunction
 
 " Diff processing {{{
 
-function! s:run_diff()
-  let cmd = 'git diff --no-ext-diff --no-color -U0 ' . g:gitgutter_diff_args . ' ' . shellescape(s:file())
+function! s:run_diff(realtime)
+  if a:realtime
+    let cmd = 'diff -U0 ' . g:gitgutter_diff_args . ' <(git show :./' . fnamemodify(s:file(), ':t') . ') - '
+  else
+    let cmd = 'git diff --no-ext-diff --no-color -U0 ' . g:gitgutter_diff_args . ' ' . shellescape(s:file())
+  endif
   if s:grep_available
     let cmd .= s:grep_command
   endif
-  let diff = system(s:command_in_directory_of_file(cmd))
+  if a:realtime
+    let diff = system(s:command_in_directory_of_file(cmd), join(getline(1,'$'),"\n")."\n")
+  else
+    let diff = system(s:command_in_directory_of_file(cmd))
+  endif
   return diff
 endfunction
 
@@ -408,11 +416,15 @@ function! GitGutterAll()
 endfunction
 command GitGutterAll call GitGutterAll()
 
-function! GitGutter(file)
+function! GitGutter(file, ...)
   call s:set_file(a:file)
   if s:is_active()
     call s:init()
-    let diff = s:run_diff()
+    if a:0 == 1
+      let diff = s:run_diff(1)
+    else
+      let diff = s:run_diff(0)
+    endif
     let s:hunks = s:parse_diff(diff)
     let modified_lines = s:process_hunks(s:hunks)
     if g:gitgutter_sign_column_always
@@ -536,6 +548,9 @@ endif
 
 augroup gitgutter
   autocmd!
+
+  autocmd CursorHold,CursorHoldI * call GitGutter(s:current_file(), 1)
+
   if g:gitgutter_eager
     autocmd BufEnter,BufWritePost,FileWritePost,FileChangedShellPost * call GitGutter(s:current_file())
     autocmd TabEnter * call GitGutterAll()
