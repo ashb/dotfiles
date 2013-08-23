@@ -10,3 +10,4 @@ end
 color solarized
 " cleare the BG on the gitgutter
 highlight clear SignColumn
+set bg=dark
