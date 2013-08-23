@@ -1,4 +1,8 @@
 " -*- vim -*-
+
+" We want to leave nu on - this gives us the current linenumber rather than 0
+set relativenumber number
+
 " ,l will toggle between abs and rel line numbers
-set relativenumber
-map ,l :let [&nu,&rnu]=[&rnu,!&rnu]<cr>
+" Toggle between absolute and relative.
+map ,l :let &rnu=!&rnu<cr>
