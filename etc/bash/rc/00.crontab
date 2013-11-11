@@ -22,7 +22,7 @@ function crontab {
             cat ${CRONTAB_FILE}
         ;;
         -e|"")
-            ${VISUAL} ${CRONTAB_FILE}
+            ${EDITOR} ${CRONTAB_FILE}
             ${REAL_CRONTAB} ${CRONTAB_FILE}
         ;;
         *)
