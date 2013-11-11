@@ -1,0 +1,10 @@
+# -*- Mode: Apache; tab-width: 3; indent-tabs-mode: nil -*-
+
+# customise these settings appropriately (not all are even necessary)
+#  MAILTO=ash@firemirror.com
+#    PATH=/ports/bin:/ports/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+#PERL5LIB=/home/norm/lib/perl
+#    HOST=XXX
+
+#mn   hr    dom   mon   dow   cmd
+*/5 * * * * $HOME/bin/Darwin/battery_logger.sh -o $HOME/var/battery
