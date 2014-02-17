@@ -14,11 +14,12 @@ set
 " Always keep 3 lines above/below current when scrolling
 set scrolloff=3
 
-set autoindent smartindent
+set autoindent
 
 set backspace=eol,start,indent
 
 syntax on
+filetype plugin indent on
 
 map ,d :Bclose<cr>
 
