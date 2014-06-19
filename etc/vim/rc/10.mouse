@@ -5,4 +5,6 @@
 set mouse=a
 
 " Yank, put, etc use the system pasteboard
-set clipboard=unnamed
+"set clipboard=unnamed
+
+
