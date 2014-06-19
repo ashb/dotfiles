@@ -22,7 +22,7 @@ hi User8 ctermbg=0 ctermfg=6 cterm=bold guibg=#2e3435 guifg=#06989a gui=bold
 
 " Here comes the status line
 set laststatus=2										" Always show status.
-set statusline=%1*%-2.2n%*								" Buffer number.
+set statusline=%1*%-3.3n%*								" Buffer number.
 set statusline+=\ %f									" Filename.
 set statusline+=\ (%2*%{(&fenc==\"\"?&enc:&fenc)}%*)	" Encoding.
 set statusline+=%(\ [%3*%H%R%M%*]%)						" Flags.
