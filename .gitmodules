@@ -4,3 +4,6 @@
 [submodule "etc/vim/bundle/salt-vim"]
 	path = etc/vim/bundle/salt-vim
 	url = github:saltstack/salt-vim
+[submodule "etc/vim/bundle/vim-golang"]
+	path = etc/vim/bundle/vim-golang
+	url = github:jnwhiteh/vim-golang
