@@ -4,7 +4,8 @@
 " t - auto-wrap text
 " c - auto-wrap comments
 " r - insert comment leader when hitting <cr>
+" o - insert comment leader after hitting 'o' or 'O'
 " q - format commants with gq commans
 " 2 - use 2nd line of paragraph for format, not the first
-set formatoptions=jtcrq2
+set formatoptions=jtcoq2
 
