@@ -48,55 +48,61 @@ function get_git_status {
     git_status[3]='0'       # behind
     git_status[4]='0'       # diverged
     git_status[5]='0'       # untracked
-    
-    local status=$( git status 2>/dev/null )
-    
-    local    find_branch="# On branch ([^${IFS}]*)"
-    local     find_clean="nothing.* to commit"
-    local  find_diverged="# Your branch and (.*) have diverged"
-    local    find_remote="# Your branch is (.*) of"
-    local find_untracked="# Untracked files:"
-    
-    if [[ ${status} =~ ${find_branch} ]]; then
-        git_status[0]="${BASH_REMATCH[1]}"
-        
-        [[ ! ${status} =~ ${find_clean} ]] \
-            && git_status[1]=1
-        [[ ${status} =~ ${find_untracked} ]] \
-            && git_status[5]=1
-        [[ ${status} =~ ${find_remote} ]] && {
-            [[ ${BASH_REMATCH[1]} == "ahead" ]]     \
-                && git_status[2]=1              \
-                || git_status[3]=1
-        }
-        [[ ${status} =~ ${find_diverged} ]] \
-            && git_status[4]=1
-        
-        return 0
-    fi
-    
-    return 1
+
+    local find_branch="^## (.*)"
+    local find_behind="\[(\d)\]"
+    local find_ahead_behind="(\[(ahead|behind) ([[:digit:]]+)\])"
+    local find_diverged="\[ahead ([[:digit:]]+), behind ([[:digit:]]+)\]"
+    local find_dirty=" M "
+    local find_untracked="\\?\\? "
+
+    local old_ifs="${IFS}"
+    IFS=$'\n'
+
+    for line in $(git status --porcelain -b 2>/dev/null)
+    do
+        if [[ "${line}" =~ ${find_branch} ]]; then
+            git_status[0]="${BASH_REMATCH[1]%%...*}"
+            if [[ "${line}" =~ $find_ahead_behind ]]; then
+                case ${BASH_REMATCH[1]} in
+                    ahead)  git_status[2]=1 ;;
+                    behind) git_status[3]=1 ;;
+                esac
+            elif [[ "${line}" =~ $find_diverged ]]; then
+                git_status[4]=1
+            fi
+        elif [[ "${line}" =~ "${find_dirty}" ]]; then
+            git_status[1]=1
+        elif [[ "${line}" =~ ${find_untracked} ]]; then
+            git_status[5]=1
+        fi
+    done
+
+    # TODO: Work out how to get ahead or behind with porcelain mode
+
+    IFS="${old_ifs}"
+    return 0
 }
 
 # A short string to indicate the status of the current git repository.
 function git_status_formatter {
     get_git_status \
         || return
-    
+
     local git_status_branch="${git_status[0]}"
     local git_status_symbol=':'
-    
+
     [ "${git_status_branch}" = "master" ] \
         && git_status_branch=''
-    
+
     # unclean repo is *
     [ "${git_status[1]}" != 0 ] \
         && git_status_symbol="${git_status_symbol}*"
-    
+
     # untracked files is +
     [ "${git_status[5]}" != 0 ] \
         && git_status_symbol="${git_status_symbol}+"
-    
+
     printf " %s%s"              \
         "$git_status_branch"    \
         "$git_status_symbol"
