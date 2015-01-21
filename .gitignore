@@ -1,5 +1,6 @@
 # Default dirs in home dir
 /Applications/
+/Calibre Library/
 /Desktop/
 /Documents/
 /Downloads/
@@ -10,6 +11,7 @@
 /Pictures/
 /Sites/
 /Public/
+/VirtualBox VMs/
 /.Trash/
 /.account
 /code/
