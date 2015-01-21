@@ -20,6 +20,6 @@ function check_sublime_pkg_installed {
 }
 
 # We always want to check sublime on OS X
-export CHECK_SUBLIME="yes"
+export CHECK_SUBLIME="no"
 
 
