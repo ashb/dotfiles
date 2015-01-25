@@ -26,13 +26,11 @@ function unlink_ssh_authsock {
     | sort -n \
     | cut -d' ' -f 2)
     do
-        if [ "$sock" != "$SSH_AUTH_SOCK_OLD" ]; then
-            # Check if this socket is alive and working
-            if SSH_AUTH_SOCK=$sock ssh-add -l >/dev/null 2>&1; then
-                ln -sf $sock ~/.ssh/auth_sock
-                unset SSH_AUTH_SOCK_OLD
-            fi
-            break
+        # Check if this socket is alive and working
+        if ! SSH_AUTH_SOCK=$sock ssh-add -l 2>&1 | grep -q "Could not open"; then
+            ln -sf $sock ~/.ssh/auth_sock
+            unset SSH_AUTH_SOCK_OLD
+            export SSH_AUTH_SOCK=$sock
         fi
     done
 
