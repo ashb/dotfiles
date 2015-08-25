@@ -1,0 +1,2 @@
+# -*- Bash -*-
+export VAGRANT_VMWARE_CLONE_DIRECTORY=~/Documents/Virtualized\ Machines.localized/Vagrant
