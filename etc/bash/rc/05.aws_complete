@@ -1,0 +1,3 @@
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; -*-
+
+which -s aws && complete -C aws_completer aws
