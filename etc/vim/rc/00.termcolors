@@ -7,7 +7,11 @@ elseif &term =~ "-color"
   syntax on
 end
 
-color solarized
+if strlen($VIM_COLOR) > 0
+  color $VIM_COLOR
+else
+  color solarized
+endif
 " cleare the BG on the gitgutter
 highlight clear SignColumn
 set bg=dark
