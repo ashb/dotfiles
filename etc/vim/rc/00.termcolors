@@ -9,6 +9,10 @@ end
 
 if strlen($VIM_COLOR) > 0
   color $VIM_COLOR
+elseif $ITERM_PROFILE == "Presentation"
+  " If we are in the "Presentation" iterm profile then use a higher-contrast
+  " color scheme.
+  color default
 else
   color solarized
 endif
