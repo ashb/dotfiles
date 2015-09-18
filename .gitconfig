@@ -5,6 +5,7 @@
 	glog = log --pretty=oneline --topo-order --graph --abbrev-commit --decorate
 	st = status -sb
 	branch-migrations = !git diff --name-only $(git merge-base HEAD master)..HEAD -- db/migrate/
+	ls = log --pretty=format:\"%C(yellow)%h%C(auto)%d\\ %Creset%s%Cblue\\ [%an]\" --decorate --graph
 [color]
 	ui = auto
 [user]
