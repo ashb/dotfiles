@@ -3,19 +3,25 @@
 #
 #       Setup the paths of the homebrew packaging system.
 
-
-
-function homebrew_locallib {
-  local brew_prefix="/usr/local"
-  if [ "$1" == "on" ]; then
-    export PERL_MM_OPT="INSTALL_BASE=${brew_prefix}"
-    export PERL5LIB="${brew_prefix}/lib/perl5"
-    export MODULEBUILDRC="${brew_prefix}/etc//modulebuildrc"
-    export PERL_CPANM_OPT="-l${brew_prefix}"
+function configure_homebrew_paths {
+  if [ -x "$HOME/.homebrew/bin/brew" ]; then
+    export BREW_PREFIX="$($HOME/.homebrew/bin/brew --prefix)"
+  elif [ -x "/usr/local/bin/brew" ]; then
+      export BREW_PREFIX="$(/usr/local/bin/brew --prefix)"
+  elif which brew >dev/null; then
+      export BREW_PREFIX="$(brew --prefix)"
   else
-    unset PERL_MM_OPT
-    unset PERL5LIB
-    unset MODULEBUILDRC
-    unset PERL_CPANM_OPT
+    return
   fi
+
+  [ -e "${BREW_PREFIX}/etc/bash_completion/" -a -z "$BASH_COMPLETION" ] \
+      && BASH_COMPLETION="${BREW_PREFIX}/etc/bash_completion"
+
+  # We want these to be at the front, before /usr/bin
+  path_remove '/usr/local/bin'
+  path_remove '/usr/local/sbin'
+
+  path_prepend    "${BREW_PREFIX}/sbin"
+  path_prepend    "${BREW_PREFIX}/bin"
+  manpath_append  "${BREW_PREFIX}/share/man"
 }
