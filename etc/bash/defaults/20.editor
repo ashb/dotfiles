@@ -1,2 +1,4 @@
 # Lets not use nano!
-export EDITOR=vim
+which nvim >/dev/null \
+  && export EDITOR=nvim \
+  || export EDITOR=vim
