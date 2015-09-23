@@ -1,3 +1,0 @@
-# -*- Bash -*-
-# SocialFlow boxes only have en-US locale, not en_GB
-export LANG=en_US.UTF-8

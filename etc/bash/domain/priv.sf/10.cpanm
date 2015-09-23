@@ -1,2 +1,0 @@
-# Use the local CPAN mirror for cpanm
-export PERL_CPANM_OPT='--mirror http://devdb:25123 --mirror-only'
