@@ -1,4 +1,9 @@
+# -*- Bash -*-
 # Lets not use nano!
-which nvim >/dev/null \
-  && export EDITOR=nvim \
-  || export EDITOR=vim
+if which nvim >/dev/null; then
+  export EDITOR=nvim
+  alias view='nvim -o'
+  alias vim='nvim'
+else
+  export EDITOR=vim
+fi
