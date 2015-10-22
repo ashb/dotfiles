@@ -1,0 +1,18 @@
+#!/bin/bash
+
+function aws-set-environment-variables {
+  local profile
+  local var
+  local val
+  [ -n "$1" ] && AWS_PROFILE="$1"
+  profile=${AWS_PROFILE:+${AWS_PROFILE}.}
+  for var in aws_access_key_id aws_secret_access_key region
+  do
+    val=$(aws configure get $profile$var)
+    [ $? -eq 0 ] || { echo >&2 "error running \`aws configure get $profile$var\`"; return 1; }
+
+    var="$(echo $var | tr '[a-z]' '[A-Z]' | sed s/REGION/AWS_REGION/)"
+
+    export $var=$val
+  done
+}
