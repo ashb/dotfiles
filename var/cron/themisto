@@ -8,3 +8,5 @@
 
 #mn   hr    dom   mon   dow   cmd
 */5 * * * * $HOME/bin/Darwin/battery_logger.sh -o $HOME/var/battery
+
+# -- added automatically Fri 25 Sep 2015 10:29:35 BST
