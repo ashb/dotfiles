@@ -2,11 +2,12 @@
 
 if has('ruby')
   runtime! ruby-plugins/**/*.vim
+  let g:LustyExplorerDefaultMappings = 0
 
-  map ,f :LustyFilesystemExplorer<cr>
-  map ,r :LustyFilesystemExplorerFromHere<cr>
-  map ,b :LustyBufferExplorer<cr>
-  map ,g :LustyBufferGrep<cr>
+  map <Leader>f :LustyFilesystemExplorer<cr>
+  map <Leader>r :LustyFilesystemExplorerFromHere<cr>
+  map <Leader>b :LustyBufferExplorer<cr>
+  map <Leader>g :LustyBufferGrep<cr>
 
   let g:LustyJugglerShowKeys = 'a'
 end
