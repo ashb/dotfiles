@@ -21,8 +21,10 @@ set backspace=eol,start,indent
 syntax on
 filetype plugin indent on
 
-map ,d :Bclose<cr>
 
 " Show tabs and space characters
 set list
 set listchars=tab:›\ ,trail:•
+
+let mapleader = ","
+nmap <Leader>d <Plug>Kwbd
