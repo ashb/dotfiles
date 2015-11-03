@@ -68,7 +68,12 @@ function! s:GetParameters(line)
 endfunc
 
 function! ParseEmacsModeLine()
-  for l:line in readfile(expand('%:p'), '', 2)
+  let l:file = expand('%:p')
+  if len(l:file) == 0
+    return
+  endif
+
+  for l:line in readfile(l:file, '', 2)
     let l:mode = substitute(l:line, '^.*-\*-\(.*\)-\*-.*', '\1', '')
     if l:mode != l:line
 
