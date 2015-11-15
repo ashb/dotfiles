@@ -7,3 +7,15 @@
 [submodule "etc/vim/bundle/vim-markdown"]
 	path = etc/vim/bundle/vim-markdown
 	url = github:plasticboy/vim-markdown
+[submodule "etc/vim/bundle/YouCompleteMe"]
+	path = etc/vim/bundle/YouCompleteMe
+	url = github:Valloric/YouCompleteMe
+[submodule "etc/vim/bundle/tagbar"]
+	path = etc/vim/bundle/tagbar
+	url = github:majutsushi/tagbar
+[submodule "etc/vim/bundle/vim-go"]
+	path = etc/vim/bundle/vim-go
+	url = github:faith/vim-go
+[submodule "etc/vim/bundle/vim-unimpaired"]
+	path = etc/vim/bundle/vim-unimpaired
+	url = github:tpope/vim-unimpaired
