@@ -1,6 +1,3 @@
-[submodule "etc/sublime/Packages/Package Control"]
-	path = etc/sublime/Packages/Package Control
-	url = github:wbond/sublime_package_control.git
 [submodule "etc/vim/bundle/vim-golang"]
 	path = etc/vim/bundle/vim-golang
 	url = github:jnwhiteh/vim-golang
