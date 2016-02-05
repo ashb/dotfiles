@@ -37,3 +37,5 @@
 [url "gitosis@callisto.firemirror.com:"]
   insteadOf = "callisto:"
   insteadOf = "digiresults:"
+[transfer]
+	fsckObjects = true
