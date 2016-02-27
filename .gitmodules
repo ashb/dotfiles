@@ -16,3 +16,6 @@
 [submodule "etc/vim/bundle/vim-unimpaired"]
 	path = etc/vim/bundle/vim-unimpaired
 	url = github:tpope/vim-unimpaired
+[submodule "etc/vim/bundle/vim-obsession"]
+	path = etc/vim/bundle/vim-obsession
+	url = github:tpope/vim-obsession
