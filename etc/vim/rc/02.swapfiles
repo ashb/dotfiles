@@ -3,3 +3,4 @@
 " Remove local dir from the list
 set directory-=.
 set directory^=~/var/tmp//
+

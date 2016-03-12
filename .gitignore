@@ -48,6 +48,9 @@
 # Sublime Package Control state file. local only
 /etc/sublime/Packages/User/Package Control.last-run
 
+/etc/vim/bundle/*
+etc/vim/spell/*
+
 
 # Don't ignore .gitignore files anywere - we need them for creating 'emtpy' dirs
 !.gitignore

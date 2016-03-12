@@ -25,11 +25,13 @@ set laststatus=2										" Always show status.
 set statusline=%1*%-3.3n%*								" Buffer number.
 set statusline+=\ %f									" Filename.
 set statusline+=\ (%2*%{(&fenc==\"\"?&enc:&fenc)}%*)	" Encoding.
-set statusline+=%(\ [%3*%H%R%M%*]%)						" Flags.
+set statusline+=%(\ [%3*%H%H%R%M%*]%)					" Flags.
 set statusline+=%=										" Left-right alignment.
-set statusline+=%(%4*%{SyntaxItem()}%*%)				" Highlighting group.
+set statusline+=%{ObsessionStatus()}					" Session name
+set statusline+=\ %(%4*%{SyntaxItem()}%*%)				" Highlighting group.
 set statusline+=\ %-25.(%l/%L,%v\ \ b:%o%)			" Line/column number.
 set statusline+=\ %P									" % through file.
+" %{ObsessionStatus()}
 
 " This trick is so I can better control the colors of the non-current
 " statusline. By default it flips the bold attribute flag in all cases,
