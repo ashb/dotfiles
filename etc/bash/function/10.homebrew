@@ -6,6 +6,7 @@
 function configure_homebrew_paths {
   if [ -x "$HOME/.homebrew/bin/brew" ]; then
     export BREW_PREFIX="$($HOME/.homebrew/bin/brew --prefix)"
+    export HOMEBREW_CASK_OPTS="--caskroom=$HOME/.homebrew-Caskroom --binarydir=${BREW_PREFIX}/bin"
   elif [ -x "/usr/local/bin/brew" ]; then
       export BREW_PREFIX="$(/usr/local/bin/brew --prefix)"
   elif which brew >dev/null; then
