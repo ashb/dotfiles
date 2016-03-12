@@ -1,0 +1,6 @@
+" -*- Mode: vim; tab-width: 4; indent-tabs-mode: nil; -*-
+
+" Persist vim undo history across vim invokations
+set undodir-=.
+set undodir^=~/var/tmp//
+set undofile
