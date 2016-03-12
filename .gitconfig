@@ -41,3 +41,7 @@
 	fsckObjects = true
 [receive "fsck"]
 	badtimezone = warn
+[merge]
+	ff = only
+[fetch]
+	prune = true
