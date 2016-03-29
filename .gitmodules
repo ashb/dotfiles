@@ -19,3 +19,9 @@
 [submodule "etc/vim/bundle/vim-obsession"]
 	path = etc/vim/bundle/vim-obsession
 	url = github:tpope/vim-obsession
+[submodule "etc/vim/bundle/vim-repeat"]
+	path = etc/vim/bundle/vim-repeat
+	url = git://github.com/tpope/vim-repeat.git
+[submodule "etc/vim/bundle/vim-surround"]
+	path = etc/vim/bundle/vim-surround
+	url = git://github.com/tpope/vim-surround
