@@ -1,0 +1,14 @@
+" -*- vim -*-
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_python_checkers = ['flake8', 'python']
+let g:syntastic_lua_checkers = ["luac", "luacheck"]
+
+" Don't run python checks for anything in homebrew or installed packages
+autocmd FileType python if stridx(expand("%:p"), $BREW_PREFIX) == 0 || stridx(expand("%:p"), "/site-packages/") != -1 |
+    \ let b:syntastic_checkers = ["python"] | endif
+

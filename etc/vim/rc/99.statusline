@@ -26,6 +26,9 @@ set statusline=%1*%-3.3n%*								" Buffer number.
 set statusline+=\ %f									" Filename.
 set statusline+=\ (%2*%{(&fenc==\"\"?&enc:&fenc)}%*)	" Encoding.
 set statusline+=%(\ [%3*%H%H%R%M%*]%)					" Flags.
+set statusline+=\ %#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 set statusline+=%=										" Left-right alignment.
 set statusline+=%{ObsessionStatus()}					" Session name
 set statusline+=\ %(%4*%{SyntaxItem()}%*%)				" Highlighting group.
