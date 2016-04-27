@@ -1,1 +1,5 @@
 " -*- vim -*-
+
+" Use what ever python is in our path -- if we're in a virtual env that will
+" be the 'right' python (2 or 3) that we've selected.
+let g:ycm_python_binary_path = exepath("python")
