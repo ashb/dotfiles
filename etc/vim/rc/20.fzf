@@ -1,0 +1,12 @@
+" -*- vim -*-
+
+if len("$BREW_PREFIX")
+  set rtp+=$BREW_PREFIX/opt/fzf
+
+  " Make the commands me :FzfFiles not :Files etc
+  let g:fzf_command_prefix = 'Fzf'
+  map <Leader>b :FzfBuffers<cr>
+  map <Leader>f :FzfFiles<cr>
+  map <Leader>r :call fzf#vim#files(expand("%:p:h"))<cr>
+  map <Leader>g :FzfGitFiles<cr>
+endif
