@@ -34,3 +34,6 @@
 [submodule "etc/vim/bundle/vim-bracketed-paste"]
 	path = etc/vim/bundle/vim-bracketed-paste
 	url = github:ConradIrwin/vim-bracketed-paste
+[submodule "etc/tmux/plugins/tpm"]
+	path = etc/tmux/plugins/tpm
+	url = github:tmux-plugins/tpm
