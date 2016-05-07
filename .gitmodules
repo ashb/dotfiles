@@ -37,3 +37,6 @@
 [submodule "etc/tmux/plugins/tpm"]
 	path = etc/tmux/plugins/tpm
 	url = github:tmux-plugins/tpm
+[submodule "etc/vim/bundle/vim-tmux-navigator"]
+	path = etc/vim/bundle/vim-tmux-navigator
+	url = github:christoomey/vim-tmux-navigator
