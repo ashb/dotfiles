@@ -40,3 +40,9 @@
 [submodule "etc/vim/bundle/vim-tmux-navigator"]
 	path = etc/vim/bundle/vim-tmux-navigator
 	url = github:christoomey/vim-tmux-navigator
+[submodule "etc/vim/bundle/vim-airline-themes"]
+	path = etc/vim/bundle/vim-airline-themes
+	url = github:vim-airline/vim-airline-themes
+[submodule "etc/vim/bundle/vim-airline"]
+	path = etc/vim/bundle/vim-airline
+	url = github:vim-airline/vim-airline

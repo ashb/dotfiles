@@ -2,61 +2,8 @@
 " ------------------------------------------------------------------------------
 " Statusline
 " ------------------------------------------------------------------------------
-" Identify the highlight group of the currect cursor position
-function! SyntaxItem()
-    return synIDattr(synID(line("."),col("."),1),"name")
-endfunction
 
-" Current statusline, assumes literal_tango colorscheme.
-hi User1 ctermbg=0 ctermfg=1 cterm=bold guibg=#2e3435 guifg=#ef2929 gui=bold
-hi User2 ctermbg=0 ctermfg=2 cterm=bold guibg=#2e3435 guifg=#8ae234 gui=bold
-hi User3 ctermbg=0 ctermfg=3 guibg=#2e3435 guifg=#c4a000
-hi User4 ctermbg=0 ctermfg=6 guibg=#2e3435 guifg=#06989a
-
-" Non-current statusline, assumes literal_tango colorscheme. The 'bold' here
-" is actually to make sure it will *not* be bold. See below.
-hi User5 ctermbg=0 ctermfg=1 cterm=bold guibg=#2e3435 guifg=#ef2929 gui=bold
-hi User6 ctermbg=0 ctermfg=2 cterm=bold guibg=#2e3435 guifg=#8ae234 gui=bold
-hi User7 ctermbg=0 ctermfg=3 cterm=bold guibg=#2e3435 guifg=#c4a000 gui=bold
-hi User8 ctermbg=0 ctermfg=6 cterm=bold guibg=#2e3435 guifg=#06989a gui=bold
-
-" Here comes the status line
-set laststatus=2										" Always show status.
-set statusline=%1*%-3.3n%*								" Buffer number.
-set statusline+=\ %f									" Filename.
-set statusline+=\ (%2*%{(&fenc==\"\"?&enc:&fenc)}%*)	" Encoding.
-set statusline+=%(\ [%3*%H%H%R%M%*]%)					" Flags.
-set statusline+=\ %#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-set statusline+=%=										" Left-right alignment.
-set statusline+=%{ObsessionStatus()}					" Session name
-set statusline+=\ %(%4*%{SyntaxItem()}%*%)				" Highlighting group.
-set statusline+=\ %-25.(%l/%L,%v\ \ b:%o%)			" Line/column number.
-set statusline+=\ %P									" % through file.
-" %{ObsessionStatus()}
-
-" This trick is so I can better control the colors of the non-current
-" statusline. By default it flips the bold attribute flag in all cases,
-" which I don't like. See the %* field in :help 'statusline'
-let g:c_statusline = &g:statusline
-let g:nc_statusline =
-  \ substitute(
-    \ substitute(
-      \ substitute(
-        \ substitute(g:c_statusline, '%1', '%5', 'g'),
-        \ '%2', '%6', 'g'),
-      \ '%3', '%7', 'g'),
-    \ '%4', '%8', 'g')
-
-
-if !exists("synline_autocommands_loaded")
-  let synline_autocommands_loaded = 1
-
-  " If we need don't use both BufEnter/BufLeave and WinEnter/WinLeave then
-  " we'll get wrong colors after opening and closing windows.
-  autocmd BufEnter * let &l:statusline = g:c_statusline
-  "autocmd WinEnter * let &l:statusline = g:c_statusline
-  autocmd BufLeave * let &l:statusline = g:nc_statusline
-  "autocmd WinLeave * let &l:statusline = g:nc_statusline
-endif
+set laststatus=2        " Always show status.
+let g:airline_powerline_fonts = 1
+let g:airline_section_z = airline#section#create(['%{ObsessionStatus(''$'', '''')}', 'windowswap', '%3p%% ', 'linenr', ':%3v '])
+set noshowmode
