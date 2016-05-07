@@ -42,11 +42,11 @@ endfunc
 let g:emacs_mode_line_mapping = {
   \ 'tab-width': 'tabstop',
   \ 'indent-tabs-mode': function('s:indent_tabs_mode'),
-  \ 'Mode': {
+  \ 'mode': {
   \   'prop': 'filetype',
   \   'map': {
-  \     'Bash': 'sh',
-  \     'Vimrc': 'vim',
+  \     'bash': 'sh',
+  \     'vimrc': 'vim',
   \   },
   \ },
 \}
@@ -58,7 +58,7 @@ function! s:GetParameters(line)
     let vals = split(pair, '\s*:\s*')
     if len( vals ) == 1
       " Case like '-*- vim -*-'
-      let l:opt[ "Mode" ] = vals[0]
+      let l:opt[ "mode" ] = vals[0]
     else
       let l:opt[ vals[0] ] = vals[1]
     endif
@@ -68,29 +68,24 @@ function! s:GetParameters(line)
 endfunc
 
 function! ParseEmacsModeLine()
-  let l:file = expand('%:p')
-  if len(l:file) == 0
-    return
-  endif
-
-  for l:line in readfile(l:file, '', 2)
+  for l:line in getline(1,2)
     let l:mode = substitute(l:line, '^.*-\*-\(.*\)-\*-.*', '\1', '')
     if l:mode != l:line
 
       for [k, v] in items( s:GetParameters(l:mode) )
-        if has_key(g:emacs_mode_line_mapping, k)
-          let K = g:emacs_mode_line_mapping[k]
+        if has_key(g:emacs_mode_line_mapping, tolower(k))
+          let K = g:emacs_mode_line_mapping[tolower(k)]
           let t = type(K)
           if t == type(function("tr"))
             call K(k, v)
           elseif t == type({})
             " value is a dict.
-            if !has_key(K, "prop") || !has_key(K, "map") 
+            if !has_key(K, "prop") || !has_key(K, "map")
              \ || type( K['prop'] ) != type("") || type( K['map'] ) != type({})
               throw "g:emacs_mode_line_mapping['" . k . "'] is a dictionary, but it doesn't have 'prop' and 'map' values"
             endif
-            if has_key(K.map, v)
-              exec 'setlocal ' K.prop . '=' . K.map[v]
+            if has_key(K.map, tolower(v))
+              exec 'setlocal ' K.prop . '=' . K.map[tolower(v)]
             else
               exec 'setlocal ' K.prop . '=' . v
             endif
