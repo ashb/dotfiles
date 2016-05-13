@@ -46,3 +46,6 @@
 [submodule "etc/vim/bundle/vim-airline"]
 	path = etc/vim/bundle/vim-airline
 	url = github:vim-airline/vim-airline
+[submodule "etc/vim/bundle/vim-systemd-syntax"]
+	path = etc/vim/bundle/vim-systemd-syntax
+	url = github:Matt-Deacalion/vim-systemd-syntax
