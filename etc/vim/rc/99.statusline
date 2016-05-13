@@ -7,3 +7,15 @@ set laststatus=2        " Always show status.
 let g:airline_powerline_fonts = 1
 let g:airline_section_z = airline#section#create(['%{ObsessionStatus(''$'', '''')}', 'windowswap', '%3p%% ', 'linenr', ':%3v '])
 set noshowmode
+let airline_theme="luna"
+
+let g:airline_theme_patch_func = 'AirlineThemePatch'
+function! AirlineThemePatch(palette)
+  if g:airline_theme != "luna"
+    return
+  endif
+  " Make the text on inactive splits higher contrast
+  for colors in values(a:palette.inactive)
+    let colors[2] = 66
+  endfo
+endfunction
