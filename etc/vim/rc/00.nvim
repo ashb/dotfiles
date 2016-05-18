@@ -1,0 +1,8 @@
+" -*- Mode: Vimrc; tab-width: 4; indent-tabs-mode: nil; -*-
+
+" Tell neovim to use python3, and never pyhton2
+if has('nvim')
+    let g:loaded_python_provider = 1
+    let g:python3_host_prog = exepath("python3")
+endif
+
