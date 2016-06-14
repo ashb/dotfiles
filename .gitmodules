@@ -49,3 +49,6 @@
 [submodule "etc/vim/bundle/vim-systemd-syntax"]
 	path = etc/vim/bundle/vim-systemd-syntax
 	url = github:Matt-Deacalion/vim-systemd-syntax
+[submodule "etc/vim/bundle/vim-gitgutter"]
+	path = etc/vim/bundle/vim-gitgutter
+	url = github:airblade/vim-gitgutter
