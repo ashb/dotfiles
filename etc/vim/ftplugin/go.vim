@@ -13,6 +13,12 @@ let g:go_gocode_propose_builtins = 1
 
 " ,gb   build current file
 nmap <Leader>gb <Plug>(go-build)
-nmap <Leader>gc <Plug>(go-coverage)
+nmap <Leader>gc <Plug>(go-coverage-toggle)
 nmap <Leader>gd <Plug>(go-doc)
 nmap <Leader>gt <Plug>(go-test)
+nmap <Leader>a <Plug>(go-alternate-edit)
+nmap <Leader>va <Plug>(go-alternate-vertical)
+nmap <Leader>sa <Plug>(go-alternate-split)
+nmap <Leader>l <Plug>(go-metalinter)
+
+"let b:syntastic_mode = "passive"
