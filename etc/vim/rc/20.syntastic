@@ -9,10 +9,6 @@ let g:syntastic_style_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_warning_symbol='⚠'
 
-let g:syntastic_python_checkers = ['flake8', 'python']
 let g:syntastic_lua_checkers = ["luac", "luacheck"]
 
-" Don't run python checks for anything in homebrew or installed packages
-autocmd FileType python if stridx(expand("%:p"), $BREW_PREFIX) == 0 || stridx(expand("%:p"), "/site-packages/") != -1 |
-    \ let b:syntastic_checkers = ["python"] | endif
 
