@@ -52,3 +52,9 @@
 [submodule "etc/vim/bundle/vim-gitgutter"]
 	path = etc/vim/bundle/vim-gitgutter
 	url = github:airblade/vim-gitgutter
+[submodule "etc/vim/bundle/django-plus.vim"]
+	path = etc/vim/bundle/django-plus.vim
+	url = https://github.com/tweekmonster/django-plus.vim
+[submodule "etc/vim/bundle/splitjoin.vim"]
+	path = etc/vim/bundle/splitjoin.vim
+	url = github:AndrewRadev/splitjoin.vim
