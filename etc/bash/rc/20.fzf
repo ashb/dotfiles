@@ -1,0 +1,4 @@
+# -*- Bash -*-
+
+#source_if_exists "${BREW_PREFIX}/opt/fzf/shell/key-bindings.bash"
+source_if_exists "${BREW_PREFIX}/opt/fzf/shell/completion.bash"
