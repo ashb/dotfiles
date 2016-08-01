@@ -20,9 +20,9 @@
 " 'g:emacs_mode_line_mapping' dictionary. If the value is a function it will be
 " called with 'name' and 'val'. For example
 
-"   function! s:indent_tabs(name, val)
+"   function! s:indent_tabs_mode(name, val)
 "     " name would be 'indent-tabs-mode'
-"     exec 'setlocal ' . (val == 'nil') . 'expandtab'
+"     exec 'setlocal ' . (a:val == 'nil') . 'expandtab'
 "   endfunc
 "   let g.emacs_mode_line_mapping['indent-tabs-mode'] = function('s:indent_tabs_mode')
 "
