@@ -3,6 +3,11 @@
 if len("$BREW_PREFIX")
   set rtp+=$BREW_PREFIX/opt/fzf
 
+  " Use platinum searcher for default file list - respect gitignore etc.
+  if len(exepath("pt"))
+    let $FZF_DEFAULT_COMMAND="pt -g ''"
+  endif
+
   " Make the commands me :FzfFiles not :Files etc
   let g:fzf_command_prefix = 'Fzf'
   " [Buffers] Jump to the existing window if possible
