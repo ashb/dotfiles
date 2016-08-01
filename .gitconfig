@@ -45,3 +45,7 @@
 	ff = only
 [fetch]
 	prune = true
+[diff]
+	compactionHeuristic = true
+[commit]
+	verbose = true
