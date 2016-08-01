@@ -4,7 +4,7 @@ let g:go_fmt_command = "goimports"
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
@@ -22,3 +22,7 @@ nmap <Leader>sa <Plug>(go-alternate-split)
 nmap <Leader>l <Plug>(go-metalinter)
 
 "let b:syntastic_mode = "passive"
+
+" Vim-go coverd colour - use 256 colour green, not 16 colour green because of
+" Solarized
+highlight goCoverageCovered  term=bold ctermfg=118
