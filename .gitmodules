@@ -58,3 +58,6 @@
 [submodule "etc/vim/bundle/splitjoin.vim"]
 	path = etc/vim/bundle/splitjoin.vim
 	url = github:AndrewRadev/splitjoin.vim
+[submodule "etc/vim/bundle/vim-terraform"]
+	path = etc/vim/bundle/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
