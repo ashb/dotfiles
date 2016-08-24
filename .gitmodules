@@ -61,3 +61,6 @@
 [submodule "etc/vim/bundle/vim-terraform"]
 	path = etc/vim/bundle/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
+[submodule "etc/vim/bundle/ctrlp.vim"]
+	path = etc/vim/bundle/ctrlp.vim
+	url = github:ctrlpvim/ctrlp.vim

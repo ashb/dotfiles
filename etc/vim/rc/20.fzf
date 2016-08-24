@@ -1,6 +1,6 @@
 " -*- vim -*-
 
-if len("$BREW_PREFIX")
+if 0 && len("$BREW_PREFIX")
   set rtp+=$BREW_PREFIX/opt/fzf
 
   " Use platinum searcher for default file list - respect gitignore etc.
