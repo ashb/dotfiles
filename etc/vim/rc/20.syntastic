@@ -12,3 +12,5 @@ let g:syntastic_style_warning_symbol='⚠'
 let g:syntastic_lua_checkers = ["luac", "luacheck"]
 
 
+" Hilight spelling mistakes (and syntastic errors) better
+hi SpellBad cterm=undercurl ctermfg=white ctermbg=red

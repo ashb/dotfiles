@@ -22,6 +22,7 @@ nmap <Leader>sa <Plug>(go-alternate-split)
 nmap <Leader>l <Plug>(go-metalinter)
 
 "let b:syntastic_mode = "passive"
+let g:syntastic_go_checkers=['go']
 
 " Vim-go coverd colour - use 256 colour green, not 16 colour green because of
 " Solarized
