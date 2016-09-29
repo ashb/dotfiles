@@ -28,9 +28,6 @@
 [submodule "etc/vim/bundle/syntastic"]
 	path = etc/vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "etc/vim/fzf.vim"]
-	path = etc/vim/fzf.vim
-	url = github:junegunn/fzf.vim.git
 [submodule "etc/vim/bundle/vim-bracketed-paste"]
 	path = etc/vim/bundle/vim-bracketed-paste
 	url = github:ConradIrwin/vim-bracketed-paste
