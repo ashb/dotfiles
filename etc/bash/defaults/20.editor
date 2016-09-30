@@ -1,9 +1,3 @@
 # -*- Bash -*-
 # Lets not use nano!
-if which nvim >/dev/null; then
-  export EDITOR=nvim
-  alias view='nvim -o'
-  alias vim='nvim'
-else
-  export EDITOR=vim
-fi
+export EDITOR=vim
