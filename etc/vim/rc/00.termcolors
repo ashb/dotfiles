@@ -1,11 +1,23 @@
 " -*- Mode: vim; tab-width: 4; indent-tabs-mode: nil; -*-
+set bg=dark
+
 if &term =~ "-256color"
-  set t_Co=256 " enable colors on term
+  if (has("termguicolors"))
+   set termguicolors
+   set t_8f=[38;2;%lu;%lu;%lum
+   set t_8b=[48;2;%lu;%lu;%lum
+   set t_ut=
+  else
+    set t_Co=256 " enable colors on term
+    let g:solarized_termcolors=256
+  endif
   syntax on
 elseif &term =~ "-color"
   set t_Co=8 " enable colors on term
   syntax on
 end
+
+
 
 if strlen($VIM_COLOR) > 0
   color $VIM_COLOR
@@ -16,6 +28,5 @@ elseif $ITERM_PROFILE == "Presentation"
 else
   color solarized
 endif
-" cleare the BG on the gitgutter
-highlight clear SignColumn
-set bg=dark
+
+hi SpellBad cterm=italic,undercurl ctermfg=white ctermbg=red guibg=DarkRed
