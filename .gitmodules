@@ -61,3 +61,6 @@
 [submodule "etc/vim/bundle/ctrlp.vim"]
 	path = etc/vim/bundle/ctrlp.vim
 	url = github:ctrlpvim/ctrlp.vim
+[submodule "etc/vim/bundle/vim-json"]
+	path = etc/vim/bundle/vim-json
+	url = gitub:elzr/vim-json
