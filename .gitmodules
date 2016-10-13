@@ -64,3 +64,6 @@
 [submodule "etc/vim/bundle/vim-json"]
 	path = etc/vim/bundle/vim-json
 	url = gitub:elzr/vim-json
+[submodule "etc/vim/bundle/onedark.vim"]
+	path = etc/vim/bundle/onedark.vim
+	url = github.com:joshdick/onedark.vim

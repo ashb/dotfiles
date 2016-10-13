@@ -20,22 +20,14 @@ end
 
 
 if strlen($VIM_COLOR) > 0
-  color $VIM_COLOR
+  exec "color " . $VIM_COLOR
 elseif $ITERM_PROFILE == "Presentation"
   " If we are in the "Presentation" iterm profile then use a higher-contrast
   " color scheme.
+  set notermguicolors
   color default
 else
-  color darkside
-  highlight Pmenu guibg=#446688
+  color onedark
 endif
 
-hi SpellBad cterm=italic,undercurl ctermfg=white ctermbg=red guibg=DarkRed
-
-" Tweak the git diff colours. They are rubish:
-hi diffRemoved    ctermfg=1 ctermbg=0 guifg=#da4939
-hi diffAdded      ctermfg=2 ctermbg=0 guifg=#a5c261
-hi diffLine       ctermfg=4 ctermbg=0 guifg=#6d9cbe
-hi diffFile       ctermfg=1 ctermbg=0 guifg=#da4939
-hi link           diffOldFile diffFile
-hi diffNewFile    ctermfg=2 ctermbg=0 guifg=#a5c261
+map <Esc>[15~ <F5>
