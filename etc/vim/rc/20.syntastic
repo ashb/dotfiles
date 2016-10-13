@@ -11,10 +11,14 @@ let g:syntastic_style_warning_symbol='⚠'
 
 let g:syntastic_lua_checkers = ["luac", "luacheck"]
 
-" Hilight syntastic errors better
-hi SyntasticWarningSign guifg=orange guibg=bg
-hi SyntasticError guifg=red guibg=bg
-hi SyntasticErrorSign guibg=bg guifg=#E8341C
+function! s:syntastic_colours()
+  " Hilight syntastic errors better
+  hi SyntasticWarningSign guifg=orange guibg=bg
+  hi SyntasticError guifg=red guibg=bg
+  hi SyntasticErrorSign guibg=bg guifg=#E8341C
 
-hi SyntasticStyleWarningSign guifg=#ffc66d
-hi SyntasticStyleErrorSign guifg=#ffc66d
+  hi SyntasticStyleWarningSign guifg=#ffc66d
+  hi SyntasticStyleErrorSign guifg=#ffc66d
+endfunction
+
+au ColorScheme * call s:syntastic_colours()

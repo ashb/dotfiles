@@ -27,7 +27,7 @@
 	url = git://github.com/tpope/vim-surround
 [submodule "etc/vim/bundle/syntastic"]
 	path = etc/vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+	url = github:scroolose/syntastic
 [submodule "etc/vim/bundle/vim-bracketed-paste"]
 	path = etc/vim/bundle/vim-bracketed-paste
 	url = github:ConradIrwin/vim-bracketed-paste
