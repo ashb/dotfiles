@@ -73,7 +73,10 @@ function! ParseEmacsModeLine()
     if l:mode != l:line
 
       for [k, v] in items( s:GetParameters(l:mode) )
-        if has_key(g:emacs_mode_line_mapping, tolower(k))
+        " Special case "mode: cpp; mode: fold"
+        if tolower(k) == 'mode' && tolower(v) == 'fold'
+          exec 'setlocal foldmethod=marker'
+        elseif has_key(g:emacs_mode_line_mapping, tolower(k))
           let K = g:emacs_mode_line_mapping[tolower(k)]
           let t = type(K)
           if t == type(function("tr"))
