@@ -1,0 +1,46 @@
+" -*- Mode: vim; -*-
+set runtimepath+=~/etc/vim/dein-plugins/repos/github.com/Shougo/dein.vim
+if dein#load_state("~/etc/vim/dein-plugins")
+  call dein#begin("~/etc/vim/dein-plugins")
+
+  " call dein#local("~/etc/vim/bundle")
+
+  " Let dein manage dein
+  call dein#add("$HOME/etc/vim/dein-plugins/repos/github.com/Shougo/dein.vim")
+
+  call dein#add('AndrewRadev/splitjoin.vim', {'rev': 'v0.8.0-61-ga6f9ddc'})
+  call dein#add('ConradIrwin/vim-bracketed-paste')
+  call dein#add('Matt-Deacalion/vim-systemd-syntax', {'rev': '36e8a13'})
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('SirVer/ultisnips', {'rev': '3.0-379-g5352d98'})
+  call dein#add('airblade/vim-gitgutter', {'rev': '5d1a0bf'})
+  call dein#add('christoomey/vim-tmux-navigator', {'rev': 'v1.0-11-gc33a8a9'})
+  call dein#add('ctrlpvim/ctrlp.vim', {'rev': '1.80-4-g7fa89fe'})
+  call dein#add('elzr/vim-json', {'rev': 'f5e3181'})
+  call dein#add('fatih/vim-go', {'rev': '68f398b'})
+  call dein#add('hashivim/vim-terraform.git', {'rev': 'a2d4a0a'})
+  call dein#add('honza/vim-snippets')
+  call dein#add('joshdick/onedark.vim', {'rev': 'e0f5294'})
+  call dein#add('majutsushi/tagbar', {'rev': 'v2.6.1-60-g7b36c46'})
+  call dein#add('scroolose/syntastic')
+  call dein#add('tpope/vim-obsession', {'rev': 'ad1ef9a'})
+  call dein#add('tpope/vim-repeat', {'rev': 'v1.1-22-g7a6675f'})
+  call dein#add('tpope/vim-surround', {'rev': 'v2.1-8-g2d05440'})
+  call dein#add('tpope/vim-unimpaired', {'rev': 'v1.2-36-g23f471a'})
+  call dein#add('tweekmonster/django-plus.vim', {'rev': '28a2217'})
+  call dein#add('vim-airline/vim-airline', {'rev': 'v0.8-69-g7b9b68f'})
+  call dein#add('vim-airline/vim-airline-themes', {'rev': 'bf5ea0d'})
+  call dein#add('zchee/deoplete-go', {'build': 'make'})
+  call dein#add('zchee/deoplete-jedi')
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Dein resets filetype and syntax flags :(
+syntax on
+filetype plugin indent on
+
+" Make sure netrw doesn't store things in the first path from pathogen
+let g:netrw_home = expand('~/var')

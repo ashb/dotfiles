@@ -1,5 +1,0 @@
-" -*- Mode: vim; -*-
-execute pathogen#infect("~/etc/vim/bundle/{}")
-
-" Make sure netrw doesn't store things in the first path from pathogen
-let g:netrw_home = expand('~/var')

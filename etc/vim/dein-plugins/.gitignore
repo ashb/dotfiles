@@ -1,0 +1,4 @@
+# Nothing in this dir should be committed!
+*
+# Except for this file itself. Git is odd
+!.gitignore
