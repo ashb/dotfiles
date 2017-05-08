@@ -1,7 +1,7 @@
 " -*- Mode: vim; tab-width: 4; indent-tabs-mode: nil; -*-
 set bg=dark
 
-if &term =~ "-256color"
+if &term =~ "-256color" || &term == "nvim"
   if (has("termguicolors"))
    set termguicolors
    set t_8f=[38;2;%lu;%lu;%lum
@@ -29,5 +29,9 @@ elseif $ITERM_PROFILE == "Presentation"
 else
   color onedark
 endif
+
+" Fix the default styling for HMTL headings
+hi clear htmlH1
+hi htmlH1 ctermfg=166 guifg=orange
 
 map <Esc>[15~ <F5>
