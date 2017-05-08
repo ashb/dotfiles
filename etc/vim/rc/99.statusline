@@ -10,6 +10,20 @@ set noshowmode
 
 let airline_theme="onedark"
 
+" to truncate all path sections but the last one, e.g. a branch
+" 'foo/bar/baz' becomes 'f/b/baz', use
+let g:airline#extensions#branch#format = 2
+
+" Don't show some of these sections in a narrow window -- i prefer seeing the
+" filename above all else.
+call airline#parts#define_minwidth('tagbar', 150)
+call airline#parts#define_minwidth('virtualenv', 150)
+call airline#parts#define_minwidth('filetype', 150)
+
+" Show 'Class.function' not jsut 'function'  in the tagbar section of the
+" statusline
+let g:airline#extensions#tagbar#flags = 'fs'
+
 let g:airline_theme_patch_func = 'AirlineThemePatch'
 function! AirlineThemePatch(palette)
   if g:airline_theme != "luna"
