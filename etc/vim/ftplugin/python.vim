@@ -14,3 +14,12 @@ let g:syntastic_python_flake8_args="--max-line-length=160"
 let g:ycm_python_binary_path = exepath("python")
 let g:syntastic_python_python_exec = g:ycm_python_binary_path
 let g:syntastic_python_flake8_exec = exepath("flake8")
+
+let g:deoplete#sources.python = ['buffer', 'jedi', 'ultisnips']
+
+let g:jedi#goto_command = "<C-]>"
+let g:jedi#rename_command = "<Plug>JediRename"
+let g:jedi#force_py_version = 3
+let g:jedi#squelch_py_warning = 1
+
+command! PyRename call jedi#rename()

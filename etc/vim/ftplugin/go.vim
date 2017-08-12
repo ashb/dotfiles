@@ -24,6 +24,13 @@ nmap <Leader>l <Plug>(go-metalinter)
 "let b:syntastic_mode = "passive"
 let g:syntastic_go_checkers=['go']
 
+
+let g:deoplete#sources.go = ['buffer', 'go', 'ultisnips']
+let g:deoplete#sources#go#pointer = 1
+let g:deoplete#sources#go#use_cache = 1
+let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go/$GOOS_$GOARCH'
+let g:deoplete#sources#go#auto_goos = 1
+
 " Vim-go coverd colour - use 256 colour green, not 16 colour green because of
 " Solarized
 highlight goCoverageCovered  term=bold ctermfg=118

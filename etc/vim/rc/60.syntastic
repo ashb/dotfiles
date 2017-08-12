@@ -22,3 +22,9 @@ function! s:syntastic_colours()
 endfunction
 
 au ColorScheme * call s:syntastic_colours()
+
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+
+hi ALEWarningSign guifg=orange guibg=bg
+hi ALEErrorSign guibg=bg guifg=#E8341C
