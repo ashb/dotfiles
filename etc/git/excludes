@@ -4,3 +4,5 @@ build_rel
 .*.swp
 *.sublime-project
 *.sublime-workspace
+Session.vim
+.ptconfig.toml

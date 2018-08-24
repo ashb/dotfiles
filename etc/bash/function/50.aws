@@ -1,18 +1,32 @@
 #!/bin/bash
 
 function aws-set-environment-variables {
-  local profile
-  local var
-  local val
+  local profile var val role_arn
   [ -n "$1" ] && AWS_PROFILE="$1"
   profile=${AWS_PROFILE:+${AWS_PROFILE}.}
+
+  # Clear out previous values
+  unset AWS_SESSION_TOKEN AWS_SECRET_ACCESS_KEY AWS_ACCESS_KEY_ID
+
+  # Check for assume_role.
+  if role_arn="$(aws configure get "${profile}role_arn")";
+  then
+    # Make a call to trigger the API to cache the STS creds.
+    AWS_PROFILE="$AWS_PROFILE" aws sts get-caller-identity >/dev/null && \
+    local creds_file
+    creds_file="$HOME/.aws/cli/cache/${AWS_PROFILE}--$(echo "$role_arn" | tr ':/' '_\-').json"
+    eval "$(<"$creds_file" jq -r '.Credentials | "export AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey | @sh) AWS_SESSION_TOKEN=\(.SessionToken | @sh) AWS_ACCESS_KEY_ID=\(.AccessKeyId | @sh)"')"
+    return
+  fi
+
   for var in aws_access_key_id aws_secret_access_key region
   do
-    val=$(aws configure get $profile$var)
+    val=$(aws configure get "${profile}${var}")
     [ $? -eq 0 ] || { echo >&2 "error running \`aws configure get $profile$var\`"; return 1; }
 
-    var="$(echo $var | tr '[a-z]' '[A-Z]' | sed s/REGION/AWS_REGION/)"
+    # shellcheck disable=SC2019,SC2018
+    var="$(echo $var | tr 'a-z' 'A-Z' | sed s/REGION/AWS_REGION/)"
 
-    export $var=$val
+    declare -x "$var=$val"
   done
 }
