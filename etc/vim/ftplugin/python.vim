@@ -1,7 +1,6 @@
 " -*- Mode: vim; tab-width: 4; indent-tabs-mode: nil; -*-
 setlocal ts=4 sw=4 sts=4
 
-
 let g:syntastic_python_checkers = ['flake8', 'python']
 " Don't run python checks for anything in homebrew or installed packages
 autocmd FileType python if stridx(expand("%:p"), $BREW_PREFIX) == 0 || stridx(expand("%:p"), "/site-packages/") != -1 |

@@ -1,7 +1,7 @@
 " -*- Vimrc -*-
 
 " Always show the gitgutter column
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 
 " Fire CursorHold 250ms after we stop doing things, not 4s (the default)
 " This is when gitgutter will update itself

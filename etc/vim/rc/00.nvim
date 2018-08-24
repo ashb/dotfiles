@@ -3,6 +3,6 @@
 " Tell neovim to use python3, and never pyhton2
 if has('nvim')
     let g:loaded_python_provider = 1
-    let g:python3_host_prog = exepath("python3")
+    let g:python3_host_prog='/Users/ash/.homebrew/bin/python3'
 endif
 

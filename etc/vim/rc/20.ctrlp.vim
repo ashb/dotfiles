@@ -15,6 +15,6 @@ let g:ctrlp_show_hidden = 1
 
 " But ignore .git dirs, and obvious binary files
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(a|so|dylib)$',
+  \ 'dir':  '\v[\/](\.(git|hg|svn|terraform\/modules|venv)|build|vendor|pkg\/dep|target\/scala-2.11)$',
+  \ 'file': '\v\.(a|so|dylib|class|pyc)$',
   \ }

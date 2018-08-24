@@ -47,6 +47,7 @@ let g:emacs_mode_line_mapping = {
   \   'map': {
   \     'bash': 'sh',
   \     'vimrc': 'vim',
+  \     'c++' : 'cpp',
   \   },
   \ },
 \}

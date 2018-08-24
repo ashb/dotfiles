@@ -2,7 +2,7 @@
 
 " Persist vim undo history across vim invokations
 set undodir-=.
-set undodir^=~/var/tmp//
+set undodir^=~/var/tmp/vim-undo//
 set undofile
 
 

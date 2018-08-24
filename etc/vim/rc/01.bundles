@@ -2,34 +2,35 @@
 "
 call plug#begin('~/etc/vim/plugged')
 
-Plug 'AndrewRadev/splitjoin.vim', {'commit': 'v0.8.0-61-ga6f9ddc'}
+Plug 'AndrewRadev/splitjoin.vim', {'commit': 'v0.8.0-194-ga034cfe'}
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Matt-Deacalion/vim-systemd-syntax', {'commit': '36e8a13'}
-Plug 'Shougo/deoplete.nvim', {'commit': '3ac8401', 'do': ':UpdateRemotePlugins'}
-Plug 'SirVer/ultisnips', {'commit': '3.0-379-g5352d98'}
-Plug 'airblade/vim-gitgutter', {'commit': '5d1a0bf'}
-Plug 'christoomey/vim-tmux-navigator', {'commit': 'v1.0-11-gc33a8a9'}
-Plug 'ctrlpvim/ctrlp.vim', {'commit': '1.80-4-g7fa89fe'}
-Plug 'davidhalter/jedi-vim', {'commit': '6411de0', 'for': 'python'}
-Plug 'elzr/vim-json', {'commit': 'f5e3181', 'for': 'json'}
-Plug 'fatih/vim-go', {'commit': '68f398b', 'for': 'go', 'do': ':GoUpdateBinaries'}
-Plug 'hashivim/vim-terraform', {'commit': 'c18d474'}
+Plug 'Shougo/deoplete.nvim', {'tag': '4.0', 'do': ':UpdateRemotePlugins'}
+Plug 'SirVer/ultisnips', {'commit': '6fdc364' } " 3.1-115-g6fdc364
+Plug 'airblade/vim-gitgutter', {'commit': '50a7062'}
+Plug 'christoomey/vim-tmux-navigator', {'commit': '18b775f' } " v1.0-32-g18b775f
+Plug 'ctrlpvim/ctrlp.vim', {'commit': '43cc73b' } " 1.80-57-g43cc73b
+Plug 'davidhalter/jedi-vim', {'commit': 'c6f05cd', 'for': 'python'} " 0.9.0-58-gc6f05cd
+Plug 'elzr/vim-json', {'commit': '3727f08', 'for': 'json'}
+Plug 'fatih/vim-go', {'commit': '0b7e453', 'for': 'go', 'do': ':GoUpdateBinaries'}
+Plug 'hashivim/vim-terraform', {'commit': '6cece1f'}
 Plug 'honza/vim-snippets'
-Plug 'joshdick/onedark.vim', {'commit': 'e0f5294'}
+Plug 'joshdick/onedark.vim', {'commit': '07ff25c'}
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vader.vim',  { 'on': 'Vader', 'for': 'vader' }
-Plug 'majutsushi/tagbar', {'commit': 'v2.7'}
-Plug 'plasticboy/vim-markdown', {'commit': '3df7bff', 'for': 'markdown'}
+Plug 'majutsushi/tagbar', {'commit': 'v2.7-58-g387bbad' } " v2.7-58-g387bbad
+Plug 'plasticboy/vim-markdown', {'commit': 'f19506b', 'for': 'markdown'} " 2.0.0-270-gf19506b
+" Try gabrielelana/vim-markdown
 Plug 'tpope/vim-obsession', {'commit': 'ad1ef9a'}
-Plug 'tpope/vim-repeat', {'commit': 'v1.1-22-g7a6675f'}
-Plug 'tpope/vim-surround', {'commit': 'v2.1-8-g2d05440'}
-Plug 'tpope/vim-unimpaired', {'commit': 'v1.2-36-g23f471a'}
+Plug 'tpope/vim-repeat', {'commit': 'v1.2'}
+Plug 'tpope/vim-surround', {'commit': '5970688' } " v2.1-14-g5970688
+Plug 'tpope/vim-unimpaired', {'commit': 'v2.0-1-gd632599'}
 Plug 'tweekmonster/django-plus.vim', {'commit': '28a2217'}
-Plug 'vim-airline/vim-airline', {'commit': 'e03afa1'}
+Plug 'vim-airline/vim-airline', {'commit': 'v0.9-148-gc7fb175'}
 Plug 'vim-airline/vim-airline-themes', {'commit': 'bf5ea0d'}
-Plug 'w0rp/ale', {'tag': 'v1.4.0'}
+Plug 'w0rp/ale', {'tag': 'v2.0.0'}
 Plug 'zchee/deoplete-go', {'do': 'make'}
-Plug 'zchee/deoplete-jedi', {'commit': 'b31b989'}
+Plug 'zchee/deoplete-jedi'
 
 call plug#end()
 
