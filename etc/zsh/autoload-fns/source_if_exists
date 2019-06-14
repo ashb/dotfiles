@@ -1,0 +1,13 @@
+# -*- zsh -*-
+
+# Source the named script(s) if they exist (missing files are not an error).
+function source_if_exists {
+  local file
+  if [ $# -eq 1 ]; then
+    set -- $~1
+  fi
+
+  for file in "$@"; do
+    [ -f "$file" ] && source "$file"
+  done
+}

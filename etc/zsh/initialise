@@ -1,0 +1,17 @@
+# -*- zsh -*-
+
+for rc_file in $ZDOTDIR/defaults/*.zsh; do
+    source $rc_file
+done
+
+fpath=("$ZDOTDIR/autoload-fns" $fpath)
+# Setup functions required during the shell initialisation.
+autoload etc/zsh/autoload-fns/[a-z]*[^.]*(:t)
+
+for rc_file in ${ZDOTDIR}/function/*.zsh; do
+    source $rc_file
+done
+
+source_if_exists "$ZDOTDIR/os/${HOSTOS}/*.zsh"
+source_if_exists "$ZDOTDIR/rc/*.zsh"
+

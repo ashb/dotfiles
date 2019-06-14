@@ -1,0 +1,39 @@
+# github:etc/bash/function/00.path
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; -*-
+#
+#       Enable common extensions to the PATH.
+
+function path_append {
+    local directory="$1"
+
+    if [ -x "$directory" ]; then
+        echo "$PATH" | grep "$directory" &> /dev/null
+        [ $? -eq 1 ] \
+            && PATH="${PATH}:${directory}"
+    fi
+}
+
+function path_prepend {
+    local directory="$1"
+
+    if [ -x "$directory" ]; then
+        echo "$PATH" | grep "$directory" &> /dev/null
+        [ $? -eq 1 ] \
+            && PATH="${directory}:${PATH}"
+    fi
+}
+
+function path_remove {
+    local directory="$(echo "$1" | sed -e 's/\//\\\//g')"
+    PATH=$(echo ${PATH} | awk -v RS=: -v ORS=: "/$directory/ {next} {print}" | sed 's/:$//')
+}
+
+function manpath_append {
+    local directory="$1"
+
+    if [ -x "$directory" ]; then
+        echo "$MANPATH" | grep "$directory" &> /dev/null
+        [ $? -eq 1 ] \
+            && MANPATH="${MANPATH}:${directory}"
+    fi
+}

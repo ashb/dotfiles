@@ -1,0 +1,12 @@
+# -*- zsh -*-
+
+# Source the named script, emitting a warning if it is not found.
+function source_or_warn {
+    local file=$1
+
+    if [ -f $file ]; then
+        source $file
+    else
+        warn "${file} does not exist"
+    fi
+}
