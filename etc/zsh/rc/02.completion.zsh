@@ -19,6 +19,8 @@ else
   fi
 fi
 
+unsetopt extendedglob
+
 WORDCHARS=''
 
 unsetopt menu_complete   # do not autoselect the first completion entry
@@ -42,6 +44,9 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' group-name ''
 # Format group names
 zstyle ':completion:*' format '%B---- %d%b'
+
+# Use Gnu-LS colors for ZSH file completion too
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 
 # Delete Git's official completions to allow Zsh's official Git completions to work.
