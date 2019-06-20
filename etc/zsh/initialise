@@ -6,7 +6,7 @@ done
 
 fpath=("$ZDOTDIR/autoload-fns" $fpath)
 # Setup functions required during the shell initialisation.
-autoload etc/zsh/autoload-fns/[a-z]*[^.]*(:t)
+autoload ${ZDOTDIR}/autoload-fns/[a-z]*[^.]*(:t)
 
 for rc_file in ${ZDOTDIR}/function/*.zsh; do
     source $rc_file
