@@ -16,7 +16,6 @@ fi
 bindkey -e                                            # Use emacs key bindings
 
 bindkey '\ew' kill-region                             # [Esc-w] - Kill from the cursor to the mark
-bindkey -s '\el' 'ls\n'                               # [Esc-l] - run command: ls
 bindkey '^r' history-incremental-search-backward      # [Ctrl-r] - Search backward incrementally for a specified string. The string may begin with ^ to anchor the search to the beginning of the line.
 if [[ "${terminfo[kpp]}" != "" ]]; then
   bindkey "${terminfo[kpp]}" up-line-or-history       # [PageUp] - Up a line of history
@@ -27,6 +26,11 @@ fi
 
 # Expand !1 when hitting space
 bindkey ' ' magic-space                               # [Space] - do history expansion
+
+[[ -n "${terminfo[kcuf1]}" ]] && \
+  bindkey "\e${terminfo[kcuf1]}" forward-word         # [Alt-RightArrow] - move forward one word
+[[ -n "${terminfo[kcub1]}" ]] && \
+  bindkey "\e${terminfo[kcub1]}" backward-word        # [Alt-LeftArrow] - move backward one word
 
 if [[ "${terminfo[kdch1]}" != "" ]]; then
   bindkey "${terminfo[kdch1]}" delete-char            # [Delete] - delete forward
