@@ -67,6 +67,11 @@ function () {
   fi
 }
 
+# Don't complete ORIG_HEAD -- I almost never use it, and it conflicts with
+# or<TAB> expanding to origin/ which is more useful for me
+zstyle ':completion:*:*:git*:*' ignored-patterns '*ORIG_HEAD'
+
+
 #
 # zsh-history-substring-search
 #
