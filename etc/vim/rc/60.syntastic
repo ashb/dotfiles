@@ -1,30 +1,12 @@
 " -*- vim -*-
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol='✗'
-let g:syntastic_style_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_warning_symbol='⚠'
-
-let g:syntastic_lua_checkers = ["luac", "luacheck"]
-
-function! s:syntastic_colours()
-  " Hilight syntastic errors better
-  hi SyntasticWarningSign guifg=orange guibg=bg
-  hi SyntasticError guifg=red guibg=bg
-  hi SyntasticErrorSign guibg=bg guifg=#E8341C
-
-  hi SyntasticStyleWarningSign guifg=#ffc66d
-  hi SyntasticStyleErrorSign guifg=#ffc66d
-endfunction
-
-au ColorScheme * call s:syntastic_colours()
-
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 
+let g:ale_python_mypy_options='--ignore-missing-imports'
+let g:ale_python_mypy_ignore_invalid_syntax=1
+
 hi ALEWarningSign guifg=orange guibg=bg
 hi ALEErrorSign guibg=bg guifg=#E8341C
+
+

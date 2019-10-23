@@ -5,12 +5,12 @@ call plug#begin('~/etc/vim/plugged')
 Plug 'AndrewRadev/splitjoin.vim', {'commit': 'v0.8.0-194-ga034cfe'}
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Matt-Deacalion/vim-systemd-syntax', {'commit': '36e8a13'}
-Plug 'Shougo/deoplete.nvim', {'tag': '4.0', 'do': ':UpdateRemotePlugins'}
+"Plug 'Shougo/deoplete.nvim', {'tag': '4.0', 'do': ':UpdateRemotePlugins'}
 Plug 'SirVer/ultisnips', {'commit': '6fdc364' } " 3.1-115-g6fdc364
 Plug 'airblade/vim-gitgutter', {'commit': '50a7062'}
 Plug 'christoomey/vim-tmux-navigator', {'commit': '18b775f' } " v1.0-32-g18b775f
 Plug 'ctrlpvim/ctrlp.vim', {'commit': '43cc73b' } " 1.80-57-g43cc73b
-Plug 'davidhalter/jedi-vim', {'commit': 'c6f05cd', 'for': 'python'} " 0.9.0-58-gc6f05cd
+" Plug 'davidhalter/jedi-vim', {'commit': 'c6f05cd', 'for': 'python'} " 0.9.0-58-gc6f05cd
 Plug 'elzr/vim-json', {'commit': '3727f08', 'for': 'json'}
 Plug 'fatih/vim-go', {'commit': '0b7e453', 'for': 'go', 'do': ':GoUpdateBinaries'}
 Plug 'hashivim/vim-terraform', {'commit': '6cece1f'}
@@ -19,6 +19,8 @@ Plug 'joshdick/onedark.vim', {'commit': '07ff25c'}
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vader.vim',  { 'on': 'Vader', 'for': 'vader' }
 Plug 'majutsushi/tagbar', {'commit': 'v2.7-58-g387bbad' } " v2.7-58-g387bbad
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'plasticboy/vim-markdown', {'commit': 'f19506b', 'for': 'markdown'} " 2.0.0-270-gf19506b
 " Try gabrielelana/vim-markdown
 Plug 'tpope/vim-obsession', {'commit': 'ad1ef9a'}
@@ -28,9 +30,10 @@ Plug 'tpope/vim-unimpaired', {'commit': 'v2.0-1-gd632599'}
 Plug 'tweekmonster/django-plus.vim', {'commit': '28a2217'}
 Plug 'vim-airline/vim-airline', {'commit': 'v0.9-148-gc7fb175'}
 Plug 'vim-airline/vim-airline-themes', {'commit': 'bf5ea0d'}
-Plug 'w0rp/ale', {'tag': 'v2.0.0'}
-Plug 'zchee/deoplete-go', {'do': 'make'}
-Plug 'zchee/deoplete-jedi'
+Plug 'w0rp/ale', {'tag': 'v2.3.1'}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarnpkg install --frozen-lockfile'}
+"Plug 'zchee/deoplete-go', {'do': 'make'}
+"Plug 'zchee/deoplete-jedi', {'commit': 'd49b166', 'for': 'python'}
 
 call plug#end()
 

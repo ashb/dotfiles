@@ -3,5 +3,6 @@
 "
 "       Separate out vim settings into files in ~/etc/vim/rc.
 
+let $VIMCONFIG = expand('<sfile>:p:h')
 let &runtimepath = &runtimepath . "," . expand('<sfile>:p:h')
 runtime! rc/*
