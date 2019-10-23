@@ -1,6 +1,9 @@
 [submodule "etc/tmux/plugins/tpm"]
 	path = etc/tmux/plugins/tpm
 	url = github:tmux-plugins/tpm
-[submodule "/Users/ash/etc/zsh/modules/pure"]
-	path = /Users/ash/etc/zsh/modules/pure
+[submodule "etc/zsh/modules/pure"]
+	path = etc/zsh/modules/pure
 	url = github:sindresorhus/pure
+[submodule "etc/zsh/modules/zsh-history-substring-search"]
+	path = etc/zsh/modules/zsh-history-substring-search
+	url = github:zsh-users/zsh-history-substring-search
