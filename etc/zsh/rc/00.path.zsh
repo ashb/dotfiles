@@ -10,3 +10,4 @@ path_prepend "${HOME}/bin/${HOSTOS}"
 
 path_append "/Applications/Docker.app/Contents/Resources/bin/"
 path_prepend "${BREW_PREFIX}/opt/gnu-getopt/bin"
+path_prepend "${HOME}/.local/bin"
