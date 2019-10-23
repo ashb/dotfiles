@@ -3,6 +3,7 @@
 # Source the named script(s) if they exist (missing files are not an error).
 function source_if_exists {
   local file
+  setopt +o nomatch
   if [ $# -eq 1 ]; then
     set -- $~1
   fi
@@ -10,4 +11,5 @@ function source_if_exists {
   for file in "$@"; do
     [ -f "$file" ] && source "$file"
   done
+  setopt -o nomatch
 }
