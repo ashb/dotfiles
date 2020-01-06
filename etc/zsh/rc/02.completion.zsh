@@ -76,12 +76,12 @@ zstyle ':completion:*:*:git*:*' ignored-patterns '*ORIG_HEAD'
 # zsh-history-substring-search
 #
 
-# Load from Brew
-# As per `brew info zsh-history-substring-search`
-source_if_exists $ZDOTDIR/modules/zsh-history-substring-search/zsh-history-substring-search.zsh
-if type history-substring-search-up >/dev/null; then
-  # Bind UP and DOWN arrow keys
-  # Copied from https://github.com/zsh-users/zsh-history-substring-search/tree/47a7d416c652a109f6e8856081abc042b50125f4#usage
-  bindkey "$terminfo[kcuu1]" history-substring-search-up
-  bindkey "$terminfo[kcud1]" history-substring-search-down
+if [[ -o interactive ]]; then
+  source_if_exists $ZDOTDIR/modules/zsh-history-substring-search/zsh-history-substring-search.zsh
+  if type history-substring-search-up >/dev/null; then
+    # Bind UP and DOWN arrow keys
+    # Copied from https://github.com/zsh-users/zsh-history-substring-search/tree/47a7d416c652a109f6e8856081abc042b50125f4#usage
+    bindkey "$terminfo[kcuu1]" history-substring-search-up
+    bindkey "$terminfo[kcud1]" history-substring-search-down
+  fi
 fi
