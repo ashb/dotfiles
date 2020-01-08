@@ -13,6 +13,7 @@ for rc_file in ${ZDOTDIR}/function/*.zsh; do
 done
 
 source_if_exists "$ZDOTDIR/os/${HOSTOS}/*.zsh"
+source_if_exists "$ZDOTDIR/host/${HOST}/*.zsh"
 source_if_exists "$ZDOTDIR/rc/*.zsh"
 
 [[ -o interactive ]] && source_if_exists "$ZDOTDIR/interactive/*.zsh"

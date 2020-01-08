@@ -1,8 +1,0 @@
-# -*- Bash -*-
-
-RERUN_MODULES=""
-for module in $(find ~/code -name rerun-modules -type d -maxdepth 2); do
-  RERUN_MODULES+=":$module"
-done
-export RERUN_MODULES
-export RERUN_COLOR=1
