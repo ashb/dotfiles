@@ -1,0 +1,4 @@
+{{ range .issues -}}
+{{ color "red" }}{{ .fields.status.name| printf "%10.10s" }}{{color "reset"}} {{ .key | append ":" | printf "%-12s"}} {{ .fields.summary | printf "%60.60s " -}}
+ fixVersions: {{ range .fields.fixVersions }}{{ .name }} {{ end }}
+{{ end }}

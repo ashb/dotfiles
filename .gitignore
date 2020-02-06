@@ -57,3 +57,8 @@ etc/vim/spell/*
 !.gitignore
 
 .ch.env
+
+
+# We want to track jira-cli config
+!.jira.d/
+/.jira.d/cookies.js
